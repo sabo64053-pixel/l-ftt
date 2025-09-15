@@ -1,56 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useCart } from '../context/CartContext';
 
 const Cart = () => {
   const router = useRouter();
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'Premium Leather Armchair',
-      price: 1299,
-      originalPrice: 1599,
-      color: 'Brown Leather',
-      size: 'Standard',
-      quantity: 1,
-      inStock: true,
-      imageType: 'chair',
-      imageColor: 'brown'
-    },
-    {
-      id: 2,
-      name: 'Premium Leather Armchair',
-      price: 1299,
-      originalPrice: 1599,
-      color: 'Brown Leather',
-      size: 'Standard',
-      quantity: 1,
-      inStock: true,
-      imageType: 'chair',
-      imageColor: 'brown'
-    },
-    {
-      id: 3,
-      name: 'Premium Leather Armchair',
-      price: 1299,
-      originalPrice: 1599,
-      color: 'Brown Leather',
-      size: 'Standard',
-      quantity: 1,
-      inStock: true,
-      imageType: 'chair',
-      imageColor: 'brown'
-    }
-  ]);
+  const { cartItems, setCartItems, removeFromCart } = useCart();
   
   const [couponCode, setCouponCode] = useState('');
   const [couponApplied, setCouponApplied] = useState(false);
   const [couponDiscount, setCouponDiscount] = useState(0);
 
+  // Eğer sepet boşsa test verileri ekle
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      const testItems = [
+        {
+          id: 1,
+          name: 'Premium Leather Armchair',
+          price: 1299,
+          originalPrice: 1599,
+          color: 'Brown Leather',
+          size: 'Standard',
+          quantity: 1,
+          inStock: true,
+          imageType: 'chair',
+          imageColor: 'brown',
+          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop&crop=center'
+        },
+        {
+          id: 2,
+          name: 'Premium Leather Armchair',
+          price: 1299,
+          originalPrice: 1599,
+          color: 'Brown Leather',
+          size: 'Standard',
+          quantity: 1,
+          inStock: true,
+          imageType: 'chair',
+          imageColor: 'brown',
+          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop&crop=center'
+        },
+        {
+          id: 3,
+          name: 'Premium Leather Armchair',
+          price: 1299,
+          originalPrice: 1599,
+          color: 'Brown Leather',
+          size: 'Standard',
+          quantity: 1,
+          inStock: true,
+          imageType: 'chair',
+          imageColor: 'brown',
+          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop&crop=center'
+        }
+      ];
+      setCartItems(testItems);
+    }
+  }, [cartItems.length, setCartItems]);
+
   // Function to render product image based on type and color
   const renderProductImage = (item) => {
+    // Eğer item'da image varsa onu kullan
+    if (item.image) {
+      return (
+        <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden">
+          <Image
+            src={item.image}
+            alt={item.name}
+            width={64}
+            height={64}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      );
+    }
+
+    // Fallback olarak icon göster
     const colorMap = {
       purple: 'from-purple-100 to-purple-200',
       pink: 'from-pink-100 to-pink-200',
@@ -129,7 +158,7 @@ const Cart = () => {
   };
 
   const removeItem = (id) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+    removeFromCart(id);
   };
 
   const saveForLater = (id) => {

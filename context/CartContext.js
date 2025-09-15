@@ -103,12 +103,22 @@ export const CartProvider = ({ children }) => {
     localStorage.removeItem('cartItems');
   };
 
+  // Sepet güncelleme fonksiyonu
+  const updateCartItems = (newItems) => {
+    // newItems'ın array olduğundan emin ol
+    const itemsArray = Array.isArray(newItems) ? newItems : [];
+    setCartItems(itemsArray);
+    setCartCount(itemsArray.reduce((total, item) => total + (item.quantity || 0), 0));
+    localStorage.setItem('cartItems', JSON.stringify(itemsArray));
+  };
+
   const value = {
     cartItems,
     cartCount,
     addToCart,
     removeFromCart,
-    clearCart
+    clearCart,
+    setCartItems: updateCartItems
   };
 
   return (

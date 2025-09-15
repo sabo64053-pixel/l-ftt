@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useCart } from '../context/CartContext';
 
 const ProductsPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -11,6 +13,7 @@ const ProductsPage = () => {
     sizes: [],
     brands: ['all']
   });
+  const { addToCart, cartCount } = useCart();
 
   const products = [
     {
@@ -18,7 +21,7 @@ const ProductsPage = () => {
       name: 'Tasarımcı Deri Çanta',
       price: 459,
       originalPrice: 599,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Kahverengi Deri'
     },
     {
@@ -26,7 +29,7 @@ const ProductsPage = () => {
       name: 'Lüks Yüz Kremi',
       price: 125,
       originalPrice: 199,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Beyaz'
     },
     {
@@ -34,7 +37,7 @@ const ProductsPage = () => {
       name: 'Modern Masa Lambası',
       price: 459,
       originalPrice: 599,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Siyah'
     },
     {
@@ -42,7 +45,7 @@ const ProductsPage = () => {
       name: 'Tasarımcı Deri Çanta',
       price: 459,
       originalPrice: 599,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Kahverengi Deri'
     },
     {
@@ -50,7 +53,7 @@ const ProductsPage = () => {
       name: 'Lüks Yüz Kremi',
       price: 125,
       originalPrice: 199,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Beyaz'
     },
     {
@@ -58,7 +61,7 @@ const ProductsPage = () => {
       name: 'Modern Masa Lambası',
       price: 459,
       originalPrice: 599,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Siyah'
     },
     {
@@ -66,7 +69,7 @@ const ProductsPage = () => {
       name: 'Tasarımcı Deri Çanta',
       price: 459,
       originalPrice: 599,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Kahverengi Deri'
     },
     {
@@ -74,7 +77,7 @@ const ProductsPage = () => {
       name: 'Lüks Yüz Kremi',
       price: 125,
       originalPrice: 199,
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&crop=center',
       color: 'Beyaz'
     }
   ];
@@ -87,6 +90,10 @@ const ProductsPage = () => {
   const closeModal = () => {
     setShowModal(false);
     setSelectedProduct(null);
+  };
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
   };
 
   return (
@@ -152,9 +159,13 @@ const ProductsPage = () => {
                     <svg className="w-7 h-7 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
                     </svg>
-                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    {cartCount > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                        {cartCount}
+                      </span>
+                    )}
                   </div>
-                  <span className="text-sm">Sepet (3)</span>
+                  <span className="text-sm">Sepet ({cartCount})</span>
                 </Link>
               </div>
             </div>
@@ -328,14 +339,14 @@ const ProductsPage = () => {
                   className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow"
                 >
                   <div className="relative">
-                    <div className="w-full h-48 bg-gradient-to-br from-gray-300 to-gray-400 relative flex items-center justify-center">
-                      {/* Product Image Placeholder */}
-                      <div className="text-center">
-                        <svg className="w-12 h-12 text-gray-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                        <p className="text-xs text-gray-500">Ürün Görseli</p>
-                      </div>
+                    <div className="w-full h-48 bg-white relative overflow-hidden">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover"
+                        sizes="25vw"
+                      />
 
                       {/* Favorite Icon */}
                       <div 
@@ -372,7 +383,7 @@ const ProductsPage = () => {
                         handleProductClick(product);
                       }}
                     >
-                      Hızlı Görünüm
+                      Ürün İncele
                     </div>
                   </div>
                 </div>
@@ -424,7 +435,10 @@ const ProductsPage = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer text-center">
+                  <div 
+                    onClick={() => handleAddToCart(selectedProduct)}
+                    className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer text-center"
+                  >
                     Sepete Ekle
                   </div>
                   <div className="w-full text-blue-600 hover:text-blue-700 font-medium cursor-pointer text-center">

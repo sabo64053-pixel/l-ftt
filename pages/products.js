@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useCart } from '../context/CartContext';
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -9,6 +10,7 @@ const Products = () => {
   const [selectedColors] = useState([]);
   const [sortBy, setSortBy] = useState('featured');
   const [viewMode, setViewMode] = useState('grid');
+  const { addToCart } = useCart();
 
   // Function to render product image based on type and color
   const renderProductImage = (product) => {
@@ -144,7 +146,7 @@ const Products = () => {
       colors: ['Black', 'Brown'],
       rating: 4.8,
       reviews: 127,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center',
       discount: 34,
       imageType: 'handbag',
       imageColor: 'purple'
@@ -159,7 +161,7 @@ const Products = () => {
       colors: ['White'],
       rating: 4.6,
       reviews: 89,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center',
       discount: 37,
       imageType: 'cosmetic',
       imageColor: 'pink'
@@ -174,7 +176,7 @@ const Products = () => {
       colors: ['White', 'Black'],
       rating: 4.4,
       reviews: 56,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1506629905687-4ac5ac2143ce?w=400&h=400&fit=crop&crop=center',
       discount: 31,
       imageType: 'lamp',
       imageColor: 'yellow'
@@ -189,7 +191,7 @@ const Products = () => {
       colors: ['White', 'Black', 'Blue'],
       rating: 4.7,
       reviews: 234,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&crop=center',
       discount: 33,
       imageType: 'sneakers',
       imageColor: 'blue'
@@ -204,7 +206,7 @@ const Products = () => {
       colors: ['White', 'Black', 'Blue'],
       rating: 4.3,
       reviews: 67,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center',
       discount: 41,
       imageType: 'tshirt',
       imageColor: 'green'
@@ -219,7 +221,7 @@ const Products = () => {
       colors: ['Red', 'Pink', 'Purple'],
       rating: 4.5,
       reviews: 123,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop&crop=center',
       discount: 31,
       imageType: 'lipstick',
       imageColor: 'red'
@@ -234,7 +236,7 @@ const Products = () => {
       colors: ['Silver', 'Gold'],
       rating: 4.6,
       reviews: 89,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=400&h=400&fit=crop&crop=center',
       discount: 34,
       imageType: 'clock',
       imageColor: 'gray'
@@ -249,7 +251,7 @@ const Products = () => {
       colors: ['Gray', 'Blue'],
       rating: 4.8,
       reviews: 156,
-      image: '/api/placeholder/300/300',
+      image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center',
       discount: 31,
       imageType: 'running-shoes',
       imageColor: 'orange'
@@ -497,7 +499,10 @@ const Products = () => {
                         )}
                       </div>
 
-                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                      <button 
+                        onClick={() => addToCart(product)}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                      >
                         Add to Cart
                       </button>
                     </div>

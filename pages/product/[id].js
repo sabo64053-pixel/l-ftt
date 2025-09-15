@@ -4,10 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { useCart } from '../../context/CartContext';
 
 const ProductDetail = () => {
   const router = useRouter();
   const { id } = router.query;
+  const { addToCart } = useCart();
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -18,7 +20,106 @@ const ProductDetail = () => {
   const products = {
     1: {
       id: 1,
-      name: 'Modern Masa Lambası',
+      name: 'Premium Cotton T-Shirt',
+      price: 89,
+      originalPrice: 129,
+      discount: 31,
+      brand: 'CottonCo',
+      rating: 4.6,
+      reviewCount: 89,
+      description: 'Premium pamuk malzemeden üretilmiş konforlu t-shirt. Günlük kullanım için ideal, nefes alabilir ve yumuşak.',
+      colors: ['Beyaz', 'Siyah', 'Gri'],
+      sizes: ['S', 'M', 'L', 'XL'],
+      features: [
+        'Premium pamuk',
+        'Nefes alabilir',
+        'Yumuşak dokuma',
+        'Çekmez',
+        'Kolay bakım'
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1571455786673-9d9d6c194f90?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1503341338985-95b4d1b3c8c5?w=600&h=600&fit=crop&crop=center'
+      ],
+      specifications: {
+        'Malzeme': '100% Pamuk',
+        'Boyutlar': 'M: 50x70 cm',
+        'Ağırlık': '180g',
+        'Renk': 'Beyaz',
+        'Garanti': '6 Ay'
+      }
+    },
+    2: {
+      id: 2,
+      name: 'Sport Running Shoes',
+      price: 299,
+      originalPrice: 399,
+      discount: 25,
+      brand: 'SportMax',
+      rating: 4.4,
+      reviewCount: 56,
+      description: 'Hafif ve konforlu spor ayakkabı. Koşu ve günlük kullanım için ideal, nefes alabilir ve dayanıklı.',
+      colors: ['Beyaz', 'Siyah', 'Mavi'],
+      sizes: ['38', '39', '40', '41', '42', '43'],
+      features: [
+        'Hafif malzeme',
+        'Nefes alabilir',
+        'Kaymaz taban',
+        'Konforlu',
+        'Dayanıklı'
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&h=600&fit=crop&crop=center'
+      ],
+      specifications: {
+        'Malzeme': 'Sentetik + Mesh',
+        'Boyutlar': '42 numara',
+        'Ağırlık': '280g',
+        'Renk': 'Beyaz',
+        'Garanti': '1 Yıl'
+      }
+    },
+    3: {
+      id: 3,
+      name: 'Luxury Face Cream',
+      price: 125,
+      originalPrice: 199,
+      discount: 37,
+      brand: 'BeautyCare',
+      rating: 4.5,
+      reviewCount: 78,
+      description: 'Yaşlanma karşıtı etkili krem. Cildi nemlendirir, kırışıklıkları azaltır ve genç görünüm sağlar.',
+      colors: ['Doğal'],
+      sizes: ['50ml'],
+      features: [
+        'Anti-aging',
+        'Nemlendirici',
+        'Kırışık azaltıcı',
+        'Doğal içerik',
+        'Hipoalerjenik'
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=600&fit=crop&crop=center',
+        'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=600&fit=crop&crop=center'
+      ],
+      specifications: {
+        'Hacim': '50ml',
+        'Tip': 'Günlük Krem',
+        'Cilt Tipi': 'Tüm Ciltler',
+        'SPF': 'Yok',
+        'Garanti': '6 Ay'
+      }
+    },
+    4: {
+      id: 4,
+      name: 'Modern Table Lamp',
       price: 189,
       originalPrice: 249,
       discount: 24,
@@ -47,105 +148,6 @@ const ProductDetail = () => {
         'Boyutlar': '25x25x45 cm',
         'Malzeme': 'Metal + Plastik',
         'Garanti': '2 Yıl'
-      }
-    },
-    2: {
-      id: 2,
-      name: 'Tasarımcı Deri Çanta',
-      price: 459,
-      originalPrice: 599,
-      discount: 23,
-      brand: 'MounBag',
-      rating: 4.8,
-      reviewCount: 127,
-      description: 'Premium deri malzemeden üretilmiş tasarımcı çanta. Günlük kullanım için ideal, şık ve fonksiyonel tasarım.',
-      colors: ['Kahverengi', 'Siyah', 'Beyaz'],
-      sizes: ['M', 'L'],
-    features: [
-        'Premium deri',
-        'Çok bölmeli',
-        'Su geçirmez',
-        'Kolay temizlik',
-        'Uzun ömürlü'
-    ],
-    images: [
-        'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&h=600&fit=crop&crop=center'
-      ],
-      specifications: {
-        'Malzeme': 'Gerçek Deri',
-        'Boyutlar': '35x25x15 cm',
-        'Ağırlık': '800g',
-        'Renk': 'Kahverengi',
-        'Garanti': '1 Yıl'
-      }
-    },
-    3: {
-      id: 3,
-      name: 'Premium T-Shirt',
-      price: 89,
-      originalPrice: 129,
-      discount: 31,
-      brand: 'CottonCo',
-      rating: 4.6,
-      reviewCount: 89,
-      description: 'Premium pamuk malzemeden üretilmiş konforlu t-shirt. Günlük kullanım için ideal, nefes alabilir ve yumuşak.',
-      colors: ['Beyaz', 'Siyah', 'Gri', 'Mavi'],
-      sizes: ['S', 'M', 'L', 'XL'],
-      features: [
-        'Premium pamuk',
-        'Nefes alabilir',
-        'Yumuşak dokuma',
-        'Çekmez',
-        'Kolay bakım'
-      ],
-      images: [
-        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1571455786673-9d9d6c194f90?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1503341338985-95b4d1b3c8c5?w=600&h=600&fit=crop&crop=center'
-      ],
-      specifications: {
-        'Malzeme': '100% Pamuk',
-        'Boyutlar': 'M: 50x70 cm',
-        'Ağırlık': '180g',
-        'Renk': 'Beyaz',
-        'Garanti': '6 Ay'
-      }
-    },
-    4: {
-      id: 4,
-      name: 'Spor Ayakkabı',
-      price: 299,
-      originalPrice: 399,
-      discount: 25,
-      brand: 'SportMax',
-      rating: 4.9,
-      reviewCount: 156,
-      description: 'Hafif ve konforlu spor ayakkabı. Koşu ve günlük kullanım için ideal, nefes alabilir ve dayanıklı.',
-      colors: ['Beyaz', 'Siyah', 'Mavi', 'Kırmızı'],
-      sizes: ['38', '39', '40', '41', '42', '43'],
-      features: [
-        'Hafif malzeme',
-        'Nefes alabilir',
-        'Kaymaz taban',
-        'Konforlu',
-        'Dayanıklı'
-      ],
-      images: [
-        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop&crop=center',
-        'https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&h=600&fit=crop&crop=center'
-      ],
-      specifications: {
-        'Malzeme': 'Sentetik + Mesh',
-        'Boyutlar': '42 numara',
-        'Ağırlık': '280g',
-        'Renk': 'Beyaz',
-        'Garanti': '1 Yıl'
       }
     },
     5: {
@@ -193,14 +195,14 @@ const ProductDetail = () => {
       description: 'Kablosuz Bluetooth kulaklık. Yüksek ses kalitesi, uzun pil ömrü ve konforlu tasarım.',
       colors: ['Siyah', 'Beyaz', 'Mavi'],
       sizes: ['Standart'],
-      features: [
+    features: [
         'Bluetooth 5.0',
         'Uzun pil ömrü',
         'Su geçirmez',
         'Gürültü engelleme',
         'Konforlu'
-      ],
-      images: [
+    ],
+    images: [
         'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop&crop=center',
         'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&h=600&fit=crop&crop=center',
         'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=600&h=600&fit=crop&crop=center',
@@ -229,34 +231,15 @@ const ProductDetail = () => {
   }, [product]);
 
   const handleAddToCart = () => {
-    if (typeof window === 'undefined') return;
-    
     const cartItem = {
       ...product,
-      selectedColor,
-      selectedSize,
-      quantity
+      color: selectedColor,
+      size: selectedSize,
+      quantity: quantity
     };
     
-    const savedCart = localStorage.getItem('cartItems');
-    let cartItems = savedCart ? JSON.parse(savedCart) : [];
-    
-    const existingItem = cartItems.find(item => 
-      item.id === product.id && 
-      item.selectedColor === selectedColor && 
-      item.selectedSize === selectedSize
-    );
-    
-    if (existingItem) {
-      existingItem.quantity += quantity;
-    } else {
-      cartItems.push(cartItem);
-    }
-    
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    
-    const newCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-    window.dispatchEvent(new CustomEvent('cartUpdated', { detail: newCount }));
+    // CartContext'teki addToCart fonksiyonunu kullan
+    addToCart(cartItem);
     
     alert(`${product.name} sepete eklendi!`);
   };

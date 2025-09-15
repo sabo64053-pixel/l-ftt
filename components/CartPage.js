@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -13,7 +14,7 @@ const CartPage = () => {
       quantity: 1,
       color: 'Siyah',
       size: 'M',
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop&crop=center',
       inStock: true
     },
     {
@@ -24,7 +25,7 @@ const CartPage = () => {
       quantity: 2,
       color: 'Beyaz',
       size: '50ml',
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop&crop=center',
       inStock: true
     },
     {
@@ -35,7 +36,7 @@ const CartPage = () => {
       quantity: 1,
       color: 'Beyaz',
       size: 'Standart',
-      image: '/api/placeholder/300/400',
+      image: 'https://images.unsplash.com/photo-1506629905687-4ac5ac2143ce?w=200&h=200&fit=crop&crop=center',
       inStock: false
     }
   ]);
@@ -111,13 +112,14 @@ const CartPage = () => {
                   <div className="flex flex-col sm:flex-row gap-4">
                     {/* Product Image */}
                     <div className="flex-shrink-0">
-                      <div className="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                        <div className="text-center text-gray-500">
-                          <svg className="w-12 h-12 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          <p className="text-xs">Görsel</p>
-                        </div>
+                      <div className="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                        <Image
+                          src={item.image || 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop&crop=center'}
+                          alt={item.name}
+                          width={96}
+                          height={96}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
 
