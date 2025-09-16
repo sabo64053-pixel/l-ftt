@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -7,6 +7,25 @@ import { useCart } from '../context/CartContext';
 const Home = () => {
   const router = useRouter();
   const { addToCart } = useCart();
+  const scrollContainerRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const handleReviewProduct = (productId) => {
     router.push(`/product/${productId}`);
@@ -78,30 +97,36 @@ const Home = () => {
 
   return (
     <main className="w-full">
-      {/* Hero Section - Responsive height and layout */}
-      <section className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] flex items-center overflow-hidden">
-        {/* Background Image - Figma Design */}
+      {/* Hero Section - Elegant Home Decor with Purple Filter */}
+      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center overflow-hidden">
+        {/* Background Image - Modern Living Room */}
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full relative overflow-hidden">
-            {/* Figma Background Image */}
-            <div className="w-full h-full bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-100 flex items-center justify-center">
-              {/* Simple, clean background without decorative elements */}
-            </div>
+            <Image
+              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=600&fit=crop&crop=center"
+              alt="Elegant Home Decor"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
           </div>
         </div>
         
-        {/* Gradient Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent z-10"></div>
+        {/* Purple Filter Overlay - Soft Elegant Purple */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-purple-400/25 to-purple-300/20 z-10"></div>
         
-        {/* Content - Aligned with navbar */}
+        {/* Content - Left aligned like the image */}
         <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
-          <div className="text-center sm:text-left max-w-2xl lg:max-w-3xl">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 text-gray-800 leading-tight drop-shadow-sm mt-0">Şık Ev Dekorasyonu</h1>
-            <p className="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8 text-gray-700 leading-relaxed opacity-90 drop-shadow-sm px-4 sm:px-0">
-              Lüks ev dekorasyonu ve tasarımcı mobilya parçalarından oluşan özel koleksiyonumuzla mekanınızı dönüştürün.
+          <div className="text-left max-w-2xl lg:max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight drop-shadow-lg">
+              Elegant Home Decor
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white leading-relaxed opacity-95 drop-shadow-md max-w-lg">
+              Transform your space with our exclusive collection of luxury home decor and designer furniture pieces.
             </p>
-            <Link href="/shop/home-decor" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 sm:py-2 md:py-3 px-4 sm:px-5 md:px-6 rounded-lg transition-all duration-300 text-sm sm:text-sm md:text-base shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
-              Daha Fazla Keşfet &gt;
+            <Link href="/shop/home-decor" className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
+              Explore More &gt;
             </Link>
           </div>
         </div>
@@ -116,83 +141,75 @@ const Home = () => {
               Tümünü Gör &gt;
             </Link>
           </div>
-          <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {/* Category Card 1: Clothing */}
             <Link href="/category/clothing" className="block group">
-              <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200">
-                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
-                  {/* Clothing Image */}
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full mx-auto mb-1 sm:mb-2 flex items-center justify-center shadow-lg">
-                      <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                    </div>
-                  </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center"
+                    alt="Clothing"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
                 </div>
-                {/* Category Title - Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-2 sm:p-3">
-                  <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-800 text-center">Clothing</h3>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 text-center">Clothing</h3>
                 </div>
               </div>
             </Link>
 
             {/* Category Card 2: Shoes */}
             <Link href="/category/shoes" className="block group">
-              <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200">
-                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
-                  {/* Shoes Image */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-200 to-green-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                  </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center"
+                    alt="Shoes"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
                 </div>
-                {/* Category Title - Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-3 sm:p-4">
-                  <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 text-center">Shoes</h3>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 text-center">Shoes</h3>
                 </div>
               </div>
             </Link>
 
             {/* Category Card 3: Makeup */}
             <Link href="/category/makeup" className="block group">
-              <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-pink-50 to-pink-100 hover:from-pink-100 hover:to-pink-200">
-                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
-                  {/* Makeup Image */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 sm:w-10 sm:h-10 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
-                      </svg>
-                    </div>
-                  </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=400&fit=crop&crop=center"
+                    alt="Makeup"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
                 </div>
-                {/* Category Title - Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-3 sm:p-4">
-                  <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 text-center">Makeup</h3>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 text-center">Makeup</h3>
                 </div>
               </div>
             </Link>
 
             {/* Category Card 4: Home Decor */}
             <Link href="/category/home-decor" className="block group">
-              <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200">
-                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
-                  {/* Home Decor Image */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 sm:w-10 sm:h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-                      </svg>
-                    </div>
-                  </div>
+              <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center"
+                    alt="Home Decor"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
                 </div>
-                {/* Category Title - Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-3 sm:p-4">
-                  <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 text-center">Home Decor</h3>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 text-center">Home Decor</h3>
                 </div>
               </div>
             </Link>
@@ -209,170 +226,638 @@ const Home = () => {
               Tümünü Gör &gt;
             </Link>
           </div>
-          {/* Mobile: 2 columns, Desktop: 2 columns with better spacing */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 md:gap-6 max-w-2xl mx-auto">
-            {/* Product Card 1 - Modern Masa Lambası */}
-            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
-              <div className="aspect-square bg-white relative overflow-hidden">
+          {/* Mobile: 2 columns grid, Desktop: horizontal scroll */}
+          <div className="relative md:h-[450px]">
+            <div className="grid grid-cols-2 md:flex md:overflow-x-auto md:gap-6 md:pb-4 hide-scrollbar" ref={scrollContainerRef}>
+            {/* Product Card 1 - Designer Leather Handbag */}
+            <Link href="/product/1" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1506629905687-4ac5ac2143ce?w=400&h=400&fit=crop&crop=center"
-                  alt="Modern Masa Lambası"
+                    src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center"
+                    alt="Designer Leather Handbag"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
-              </div>
-              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Modern Masa<br />Lambası</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
-                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 189</span>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 249</span>
-                </div>
-                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.7 (45)</span>
-                </div>
-                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
-                  <button 
-                    onClick={() => handleAddToCart(featuredProducts[0])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Sepete Ekle
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
                   </button>
-                  <button 
-                    onClick={() => handleReviewProduct(1)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Ürün İncele
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
                   </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Designer Leather Handbag</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$459</span>
+                    <span className="text-sm text-gray-500 line-through">$599</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
 
-            {/* Product Card 2 - Tasarımcı Deri Çanta */}
-            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
-              <div className="aspect-square bg-white relative overflow-hidden">
+            {/* Product Card 2 - Luxury Face Cream */}
+            <Link href="/product/2" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center"
+                    alt="Luxury Face Cream"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Luxury Face Cream</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$125</span>
+                    <span className="text-sm text-gray-500 line-through">$599</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 3 - Modern Table Lamp */}
+            <Link href="/product/3" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1506629905687-4ac5ac2143ce?w=400&h=400&fit=crop&crop=center"
+                    alt="Modern Table Lamp"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                  </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Modern Table Lamp</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$459</span>
+                    <span className="text-sm text-gray-500 line-through">$599</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 4 - Premium Skincare Set */}
+            <Link href="/product/4" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=400&h=400&fit=crop&crop=center"
+                    alt="Premium Skincare Set"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Premium Skincare Set</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$459</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 5 - Designer Leather Handbag */}
+            <Link href="/product/5" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center"
-                  alt="Tasarımcı Deri Çanta"
+                    alt="Designer Leather Handbag"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
-              </div>
-              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Tasarımcı Deri Çanta</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
-                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 459</span>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 599</span>
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
                 </div>
-                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Designer Leather Handbag</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$459</span>
+                    <span className="text-sm text-gray-500 line-through">$599</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 6 - Luxury Face Cream */}
+            <Link href="/product/6" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center"
+                    alt="Luxury Face Cream"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Luxury Face Cream</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$125</span>
+                    <span className="text-sm text-gray-500 line-through">$599</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 7 - Modern Table Lamp */}
+            <Link href="/product/7" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1506629905687-4ac5ac2143ce?w=400&h=400&fit=crop&crop=center"
+                    alt="Modern Table Lamp"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
                   </svg>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.8 (127)</span>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
                 </div>
-                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
-                  <button 
-                    onClick={() => handleAddToCart(featuredProducts[1])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Sepete Ekle
-                  </button>
-                  <button 
-                    onClick={() => handleReviewProduct(2)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Ürün İncele
-                  </button>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Modern Table Lamp</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$459</span>
+                    <span className="text-sm text-gray-500 line-through">$599</span>
+                  </div>
                 </div>
               </div>
+            </Link>
+
+            {/* Product Card 8 - Premium Skincare Set */}
+            <Link href="/product/8" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=400&h=400&fit=crop&crop=center"
+                    alt="Premium Skincare Set"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Premium Skincare Set</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">$459</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
             </div>
 
-            {/* Product Card 3 - Additional Product */}
-            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
-              <div className="aspect-square bg-white relative overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center"
-                  alt="Premium Ürün"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Premium Ürün<br />Koleksiyonu</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
-                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 299</span>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 399</span>
-                </div>
-                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.6 (89)</span>
-                </div>
-                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
-                  <button 
-                    onClick={() => handleAddToCart(featuredProducts[2])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Sepete Ekle
-                  </button>
-                  <button 
-                    onClick={() => handleReviewProduct(3)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Ürün İncele
-                  </button>
-                </div>
-              </div>
-            </div>
+          {/* Left Navigation Button - Desktop Only */}
+          <button
+            onClick={scrollLeft}
+            className="hidden md:block absolute left-0 top-[225px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
+          >
+            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
 
-            {/* Product Card 4 - Additional Product */}
-            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
-              <div className="aspect-square bg-white relative overflow-hidden">
+          {/* Right Navigation Button - Desktop Only */}
+          <button
+            onClick={scrollRight}
+            className="hidden md:block absolute right-0 top-[225px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
+          >
+            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      </section>
+
+      {/* New Products - Horizontal Scroll */}
+      <section className="bg-white py-6 sm:py-8 md:py-10">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
+            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Yeni Ürünler</h2>
+            <Link href="/products" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
+              Tümünü Gör &gt;
+            </Link>
+          </div>
+          {/* Mobile: 2 columns grid, Desktop: horizontal scroll */}
+          <div className="relative md:h-[450px]">
+            <div className="grid grid-cols-2 md:flex md:overflow-x-auto md:gap-6 md:pb-4 hide-scrollbar" ref={scrollContainerRef}>
+            {/* Product Card 1 - Wireless Headphones */}
+            <Link href="/product/9" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&crop=center"
-                  alt="Tasarım Ürünü"
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center"
+                    alt="Wireless Headphones"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
-              </div>
-              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Tasarım Ürünü<br />Koleksiyonu</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
-                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 159</span>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 219</span>
-                </div>
-                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.5 (67)</span>
-                </div>
-                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
-                  <button 
-                    onClick={() => handleAddToCart(featuredProducts[3])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Sepete Ekle
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
                   </button>
-                  <button 
-                    onClick={() => handleReviewProduct(4)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
-                  >
-                    Ürün İncele
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
                   </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Wireless Headphones</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">₺299</span>
+                    <span className="text-sm text-gray-500 line-through">₺399</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
+
+            {/* Product Card 2 - Smart Watch */}
+            <Link href="/product/10" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center"
+                    alt="Smart Watch"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Smart Watch</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">₺599</span>
+                    <span className="text-sm text-gray-500 line-through">₺799</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 3 - Gaming Mouse */}
+            <Link href="/product/11" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop&crop=center"
+                    alt="Gaming Mouse"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Gaming Mouse</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">₺199</span>
+                    <span className="text-sm text-gray-500 line-through">₺299</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 4 - Bluetooth Speaker */}
+            <Link href="/product/12" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                <Image
+                    src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&crop=center"
+                    alt="Bluetooth Speaker"
+                  fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Bluetooth Speaker</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">₺149</span>
+                    <span className="text-sm text-gray-500 line-through">₺199</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 5 - Wireless Earbuds */}
+            <Link href="/product/13" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop&crop=center"
+                    alt="Wireless Earbuds"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Wireless Earbuds</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">₺249</span>
+                    <span className="text-sm text-gray-500 line-through">₺349</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Product Card 6 - Mechanical Keyboard */}
+            <Link href="/product/14" className="block group md:w-[300px] md:flex-shrink-0">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=400&fit=crop&crop=center"
+                    alt="Mechanical Keyboard"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  {/* Heart Icon - Favorite */}
+                  <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  {/* Cart Icon - Add to Cart */}
+                  <button className="absolute bottom-3 right-3 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors">
+                    <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                    </svg>
+                  </button>
+                  {/* Carousel Dots */}
+                  <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+                    <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                    <div className="w-2 h-2 bg-white/50 rounded-full"></div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Mechanical Keyboard</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-lg font-bold text-blue-600">₺399</span>
+                    <span className="text-sm text-gray-500 line-through">₺599</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+          </div>
+
+          {/* Left Navigation Button - Desktop Only */}
+          <button
+            onClick={scrollLeft}
+            className="hidden md:block absolute left-0 top-[225px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
+          >
+            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Right Navigation Button - Desktop Only */}
+          <button
+            onClick={scrollRight}
+            className="hidden md:block absolute right-0 top-[225px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
+          >
+            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
           </div>
         </div>
       </section>
+
+      {/* Show More Button */}
+      <div className="flex justify-center mt-8">
+        <button className="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 hover:shadow-lg flex items-center space-x-2">
+          <span>Show More</span>
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
 
       {/* Service Benefits - Figma Design */}
       <section className="bg-white py-6 sm:py-8 md:py-10">

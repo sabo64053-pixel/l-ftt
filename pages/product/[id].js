@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -15,6 +15,26 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
+
+  const scrollContainerRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -280,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 280,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   // Mock product data - gerçek ürünlerle eşleşen veriler
   const products = {
@@ -516,10 +536,11 @@ const ProductDetail = () => {
         {/* Similar Products */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Benzer Ürünler</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="relative md:h-[400px]">
+            <div className="grid grid-cols-2 md:flex md:overflow-x-auto md:gap-6 md:pb-4 hide-scrollbar" ref={scrollContainerRef}>
             {similarProducts.map((item) => (
               <Link key={item.id} href={`/product/${item.id}`}>
-                <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden md:w-[280px] md:flex-shrink-0">
                   <div className="aspect-square relative overflow-hidden">
                     <Image
                       src={item.image}
@@ -550,6 +571,27 @@ const ProductDetail = () => {
               </div>
               </Link>
             ))}
+            </div>
+            
+            {/* Left Navigation Button - Desktop Only */}
+            <button 
+              onClick={scrollLeft}
+              className="hidden md:block absolute left-0 top-[200px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            {/* Right Navigation Button - Desktop Only */}
+            <button 
+              onClick={scrollRight}
+              className="hidden md:block absolute right-0 top-[200px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </main>

@@ -63,7 +63,7 @@ const Navbar = () => {
       {/* Bottom Category Navigation Bar */}
       <div className="hidden lg:block border-t border-gray-200 bg-gray-50">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center justify-between py-4">
+          <nav className="flex items-center justify-center py-4">
             {/* Desktop Category Navigation */}
             <div className="hidden lg:flex items-center justify-center space-x-8">
               <div className="relative">
