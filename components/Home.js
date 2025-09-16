@@ -79,7 +79,7 @@ const Home = () => {
   return (
     <main className="w-full">
       {/* Hero Section - Responsive height and layout */}
-      <section className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[450px] flex items-center overflow-hidden">
+      <section className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] flex items-center overflow-hidden">
         {/* Background Image - Figma Design */}
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full relative overflow-hidden">
@@ -96,11 +96,11 @@ const Home = () => {
         {/* Content - Aligned with navbar */}
         <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center sm:text-left max-w-2xl lg:max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-800 leading-tight drop-shadow-sm mt-0">Şık Ev Dekorasyonu</h1>
-            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-10 text-gray-700 leading-relaxed opacity-90 drop-shadow-sm px-4 sm:px-0">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 text-gray-800 leading-tight drop-shadow-sm mt-0">Şık Ev Dekorasyonu</h1>
+            <p className="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8 text-gray-700 leading-relaxed opacity-90 drop-shadow-sm px-4 sm:px-0">
               Lüks ev dekorasyonu ve tasarımcı mobilya parçalarından oluşan özel koleksiyonumuzla mekanınızı dönüştürün.
             </p>
-            <Link href="/shop/home-decor" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 sm:py-3 md:py-4 px-4 sm:px-6 md:px-8 rounded-lg transition-all duration-300 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
+            <Link href="/shop/home-decor" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 sm:py-2 md:py-3 px-4 sm:px-5 md:px-6 rounded-lg transition-all duration-300 text-sm sm:text-sm md:text-base shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
               Daha Fazla Keşfet &gt;
             </Link>
           </div>
@@ -108,10 +108,10 @@ const Home = () => {
       </section>
 
       {/* Featured Categories - Responsive padding and grid */}
-      <section className="bg-white py-8 sm:py-12 md:py-16">
+      <section className="bg-white py-6 sm:py-8 md:py-10">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8 md:mb-10 space-y-4 sm:space-y-0">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Öne Çıkan Kategoriler</h2>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
+            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Öne Çıkan Kategoriler</h2>
             <Link href="/categories" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
               Tümünü Gör &gt;
             </Link>
@@ -120,7 +120,7 @@ const Home = () => {
             {/* Category Card 1: Clothing */}
             <Link href="/category/clothing" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200">
-                <div className="h-32 sm:h-36 md:h-48 flex items-center justify-center p-3 sm:p-4">
+                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
                   {/* Clothing Image */}
                   <div className="text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
@@ -140,7 +140,7 @@ const Home = () => {
             {/* Category Card 2: Shoes */}
             <Link href="/category/shoes" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200">
-                <div className="h-32 sm:h-36 md:h-48 flex items-center justify-center p-3 sm:p-4">
+                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
                   {/* Shoes Image */}
                   <div className="text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-200 to-green-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
@@ -160,7 +160,7 @@ const Home = () => {
             {/* Category Card 3: Makeup */}
             <Link href="/category/makeup" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-pink-50 to-pink-100 hover:from-pink-100 hover:to-pink-200">
-                <div className="h-32 sm:h-36 md:h-48 flex items-center justify-center p-3 sm:p-4">
+                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
                   {/* Makeup Image */}
                   <div className="text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
@@ -180,7 +180,7 @@ const Home = () => {
             {/* Category Card 4: Home Decor */}
             <Link href="/category/home-decor" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200">
-                <div className="h-32 sm:h-36 md:h-48 flex items-center justify-center p-3 sm:p-4">
+                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
                   {/* Home Decor Image */}
                   <div className="text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
@@ -201,10 +201,10 @@ const Home = () => {
       </section>
 
       {/* Featured Products - Responsive grid and spacing */}
-      <section className="bg-gray-50 py-8 sm:py-12 md:py-16">
+      <section className="bg-gray-50 py-6 sm:py-8 md:py-10">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8 md:mb-10 space-y-4 sm:space-y-0">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Öne Çıkan Ürünler</h2>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
+            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Öne Çıkan Ürünler</h2>
             <Link href="/products" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
               Tümünü Gör &gt;
             </Link>
@@ -375,11 +375,11 @@ const Home = () => {
       </section>
 
       {/* Service Benefits - Figma Design */}
-      <section className="bg-white py-8 sm:py-12 md:py-16">
+      <section className="bg-white py-6 sm:py-8 md:py-10">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Service 1: 30-Day Returns */}
-            <div className="bg-[#F8F8FC] rounded-lg p-6 sm:p-8 text-center shadow-sm">
+            <div className="bg-[#F8F8FC] rounded-lg p-4 sm:p-6 text-center shadow-sm">
               <div className="w-16 h-16 bg-[#2A2A5A] rounded-full mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -390,7 +390,7 @@ const Home = () => {
             </div>
 
             {/* Service 2: Secure Payments */}
-            <div className="bg-[#F8F8FC] rounded-lg p-6 sm:p-8 text-center shadow-sm">
+            <div className="bg-[#F8F8FC] rounded-lg p-4 sm:p-6 text-center shadow-sm">
               <div className="w-16 h-16 bg-[#2A2A5A] rounded-full mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -401,7 +401,7 @@ const Home = () => {
             </div>
 
             {/* Service 3: 24/7 Support */}
-            <div className="bg-[#F8F8FC] rounded-lg p-6 sm:p-8 text-center shadow-sm">
+            <div className="bg-[#F8F8FC] rounded-lg p-4 sm:p-6 text-center shadow-sm">
               <div className="w-16 h-16 bg-[#2A2A5A] rounded-full mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z" />
@@ -415,10 +415,10 @@ const Home = () => {
       </section>
 
       {/* Newsletter Signup - Figma Design */}
-      <section className="bg-white py-8 sm:py-12 md:py-16">
+      <section className="bg-white py-6 sm:py-8 md:py-10">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-lg shadow-sm p-8 sm:p-12 text-center max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2A5A] mb-4">Join Our Community</h2>
+          <div className="bg-white rounded-lg shadow-sm p-6 sm:p-8 text-center max-w-3xl mx-auto">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#2A2A5A] mb-4">Join Our Community</h2>
             <p className="text-[#2A2A5A] text-sm sm:text-base mb-6 opacity-80">
               Be the first to discover new collections and receive exclusive offers
             </p>

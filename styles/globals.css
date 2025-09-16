@@ -131,7 +131,7 @@ body {
   
   /* Better hero section for desktop */
   .hero-desktop {
-    height: 400px;
+    height: 300px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
   
@@ -161,7 +161,7 @@ body {
   }
   
   .hero-desktop {
-    height: 450px;
+    height: 350px;
   }
 }
 
