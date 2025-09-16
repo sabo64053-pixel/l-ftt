@@ -129,6 +129,7 @@ const Home = () => {
             <Link href="/shop/home-decor" className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
               Explore More &gt;
             </Link>
+            </div>
           </div>
         </div>
       </section>
