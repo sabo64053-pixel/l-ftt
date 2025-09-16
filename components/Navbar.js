@@ -60,37 +60,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Bottom Category Navigation Bar */}
-      <div className="hidden lg:block border-t border-gray-200 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center justify-center py-4">
-            {/* Desktop Category Navigation */}
-            <div className="hidden lg:flex items-center justify-center space-x-8">
-              <div className="relative">
-                <Link href="/category" className="flex items-center space-x-2 text-gray-800 hover:text-blue-700 transition-colors font-medium">
-                  <span>All Categories</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <Link href="/category?cat=clothing" className="text-gray-800 hover:text-blue-700 transition-colors font-medium">
-                Clothing
-              </Link>
-              <Link href="/category?cat=shoes" className="text-gray-800 hover:text-blue-700 transition-colors font-medium">
-                Shoes
-              </Link>
-              <Link href="/category?cat=makeup" className="text-gray-800 hover:text-blue-700 transition-colors font-medium">
-                Makeup
-              </Link>
-              <Link href="/category?cat=home-decor" className="text-gray-800 hover:text-blue-700 transition-colors font-medium">
-                Home Decor
-              </Link>
-            </div>
-          </nav>
-        </div>
-      </div>
 
       {/* Mobile Category Menu */}
       {isCategoryMenuOpen && (
