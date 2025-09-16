@@ -71,12 +71,12 @@ body {
 
 /* Web Desktop Layout Improvements */
 @media (min-width: 768px) {
-  /* Better product grid for desktop */
+  /* Better product grid for desktop - 2 columns */
   .product-grid-desktop {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
   }
   
@@ -151,8 +151,9 @@ body {
 /* Large desktop improvements */
 @media (min-width: 1024px) {
   .product-grid-desktop {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
+    max-width: 900px;
   }
   
   .desktop-heading {
@@ -167,8 +168,9 @@ body {
 /* Extra large desktop */
 @media (min-width: 1280px) {
   .product-grid-desktop {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
+    max-width: 1000px;
   }
   
   .desktop-heading {
