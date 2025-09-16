@@ -210,7 +210,7 @@ const Home = () => {
             </Link>
           </div>
           {/* Mobile: 2 columns, Desktop: 2 columns with better spacing */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 md:gap-6 max-w-2xl mx-auto">
             {/* Product Card 1 - Modern Masa Lambası */}
             <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
               <div className="aspect-square bg-white relative overflow-hidden">
@@ -222,7 +222,7 @@ const Home = () => {
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
                 <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Modern Masa<br />Lambası</h3>
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
                   <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 189</span>
@@ -237,13 +237,13 @@ const Home = () => {
                 <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[0])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(1)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>
@@ -262,7 +262,7 @@ const Home = () => {
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
                 <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Tasarımcı Deri Çanta</h3>
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
                   <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 459</span>
@@ -277,13 +277,13 @@ const Home = () => {
                 <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[1])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(2)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>
@@ -302,7 +302,7 @@ const Home = () => {
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
                 <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Premium Ürün<br />Koleksiyonu</h3>
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
                   <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 299</span>
@@ -317,13 +317,13 @@ const Home = () => {
                 <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[2])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(3)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>
@@ -342,7 +342,7 @@ const Home = () => {
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+              <div className="p-2 sm:p-3 md:p-3 flex flex-col flex-grow">
                 <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Tasarım Ürünü<br />Koleksiyonu</h3>
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
                   <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 159</span>
@@ -357,13 +357,13 @@ const Home = () => {
                 <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[3])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(4)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-sm font-medium py-1.5 sm:py-2 md:py-2 px-2 sm:px-3 md:px-3 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>

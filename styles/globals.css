@@ -75,8 +75,8 @@ body {
   .product-grid-desktop {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 800px;
+    gap: 1.5rem;
+    max-width: 600px;
     margin: 0 auto;
   }
   
@@ -152,8 +152,8 @@ body {
 @media (min-width: 1024px) {
   .product-grid-desktop {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    max-width: 900px;
+    gap: 2rem;
+    max-width: 700px;
   }
   
   .desktop-heading {
@@ -169,8 +169,8 @@ body {
 @media (min-width: 1280px) {
   .product-grid-desktop {
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    max-width: 1000px;
+    gap: 2.5rem;
+    max-width: 800px;
   }
   
   .desktop-heading {
