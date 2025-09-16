@@ -117,8 +117,9 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-purple-400/25 to-purple-300/20 z-10"></div>
         
         {/* Content - Left aligned like the image */}
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-left max-w-2xl lg:max-w-3xl">
+        <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
+          <div className="text-left max-w-7xl mx-auto">
+            <div className="max-w-2xl lg:max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight drop-shadow-lg">
               Elegant Home Decor
             </h1>
