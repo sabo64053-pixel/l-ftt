@@ -116,23 +116,23 @@ const Home = () => {
               Tümünü Gör &gt;
             </Link>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {/* Category Card 1: Clothing */}
             <Link href="/category/clothing" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200">
-                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
+                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
                   {/* Clothing Image */}
                   <div className="text-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full mx-auto mb-1 sm:mb-2 flex items-center justify-center shadow-lg">
+                      <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
                     </div>
                   </div>
                 </div>
                 {/* Category Title - Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-3 sm:p-4">
-                  <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 text-center">Clothing</h3>
+                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-2 sm:p-3">
+                  <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-800 text-center">Clothing</h3>
                 </div>
               </div>
             </Link>
@@ -140,7 +140,7 @@ const Home = () => {
             {/* Category Card 2: Shoes */}
             <Link href="/category/shoes" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200">
-                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
+                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
                   {/* Shoes Image */}
                   <div className="text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-200 to-green-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
@@ -160,7 +160,7 @@ const Home = () => {
             {/* Category Card 3: Makeup */}
             <Link href="/category/makeup" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-pink-50 to-pink-100 hover:from-pink-100 hover:to-pink-200">
-                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
+                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
                   {/* Makeup Image */}
                   <div className="text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
@@ -180,7 +180,7 @@ const Home = () => {
             {/* Category Card 4: Home Decor */}
             <Link href="/category/home-decor" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200">
-                <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center p-2 sm:p-3">
+                <div className="h-20 sm:h-24 md:h-28 flex items-center justify-center p-1 sm:p-2">
                   {/* Home Decor Image */}
                   <div className="text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full mx-auto mb-2 flex items-center justify-center shadow-lg">
