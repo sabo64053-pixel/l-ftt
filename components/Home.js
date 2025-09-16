@@ -117,7 +117,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-purple-400/25 to-purple-300/20 z-10"></div>
         
         {/* Content - Left aligned like the image */}
-        <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left max-w-2xl lg:max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight drop-shadow-lg">
               Elegant Home Decor
@@ -134,7 +134,7 @@ const Home = () => {
 
       {/* Featured Categories - Responsive padding and grid */}
       <section className="bg-white py-6 sm:py-8 md:py-10">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
             <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Öne Çıkan Kategoriler</h2>
             <Link href="/categories" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
@@ -219,7 +219,7 @@ const Home = () => {
 
       {/* Featured Products - Responsive grid and spacing */}
       <section className="bg-gray-50 py-6 sm:py-8 md:py-10">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
             <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Öne Çıkan Ürünler</h2>
             <Link href="/products" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
@@ -574,7 +574,7 @@ const Home = () => {
 
       {/* New Products - Horizontal Scroll */}
       <section className="bg-white py-6 sm:py-8 md:py-10">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
             <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Yeni Ürünler</h2>
             <Link href="/products" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
@@ -861,7 +861,7 @@ const Home = () => {
 
       {/* Service Benefits - Figma Design */}
       <section className="bg-white py-6 sm:py-8 md:py-10">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Service 1: 30-Day Returns */}
             <div className="bg-[#F8F8FC] rounded-lg p-4 sm:p-6 text-center shadow-sm">
@@ -901,7 +901,7 @@ const Home = () => {
 
       {/* Newsletter Signup - Figma Design */}
       <section className="bg-white py-6 sm:py-8 md:py-10">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-lg shadow-sm p-6 sm:p-8 text-center max-w-3xl mx-auto">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#2A2A5A] mb-4">Join Our Community</h2>
             <p className="text-[#2A2A5A] text-sm sm:text-base mb-6 opacity-80">

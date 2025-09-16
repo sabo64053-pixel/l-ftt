@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="bg-white shadow-sm">
       {/* Top Utility Bar - Hidden on mobile */}
       <div className="hidden sm:block border-b border-gray-200">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-end items-center h-10 space-x-6 text-sm text-gray-500">
             <Link href="/about" className="hover:text-blue-700 transition-colors">
               About Us
@@ -34,7 +34,7 @@ const Navbar = () => {
 
       {/* Main Header Bar */}
       <div className="py-2 sm:py-4 lg:py-6">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
@@ -62,7 +62,7 @@ const Navbar = () => {
 
       {/* Bottom Category Navigation Bar */}
       <div className="hidden lg:block border-t border-gray-200 bg-gray-50">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-center py-4">
             {/* Desktop Category Navigation */}
             <div className="hidden lg:flex items-center justify-center space-x-8">
