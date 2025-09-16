@@ -79,7 +79,7 @@ const Home = () => {
   return (
     <main className="w-full">
       {/* Hero Section - Responsive height and layout */}
-      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] flex items-center overflow-hidden">
+      <section className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[450px] flex items-center overflow-hidden">
         {/* Background Image - Figma Design */}
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full relative overflow-hidden">
@@ -95,12 +95,12 @@ const Home = () => {
         
         {/* Content - Aligned with navbar */}
         <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
-          <div className="text-center sm:text-left max-w-2xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-gray-800 leading-tight drop-shadow-sm mt-0">Şık Ev Dekorasyonu</h1>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-700 leading-relaxed opacity-90 drop-shadow-sm px-4 sm:px-0">
+          <div className="text-center sm:text-left max-w-2xl lg:max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 text-gray-800 leading-tight drop-shadow-sm mt-0">Şık Ev Dekorasyonu</h1>
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-10 text-gray-700 leading-relaxed opacity-90 drop-shadow-sm px-4 sm:px-0">
               Lüks ev dekorasyonu ve tasarımcı mobilya parçalarından oluşan özel koleksiyonumuzla mekanınızı dönüştürün.
             </p>
-            <Link href="/shop/home-decor" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 text-sm sm:text-base shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
+            <Link href="/shop/home-decor" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 sm:py-3 md:py-4 px-4 sm:px-6 md:px-8 rounded-lg transition-all duration-300 text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
               Daha Fazla Keşfet &gt;
             </Link>
           </div>
@@ -116,7 +116,7 @@ const Home = () => {
               Tümünü Gör &gt;
             </Link>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {/* Category Card 1: Clothing */}
             <Link href="/category/clothing" className="block group">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200">
@@ -209,40 +209,41 @@ const Home = () => {
               Tümünü Gör &gt;
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+          {/* Mobile: 2 columns, Desktop: 4 columns with better spacing */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {/* Product Card 1 - Modern Masa Lambası */}
-            <div className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col h-full">
+            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
               <div className="aspect-square bg-white relative overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1506629905687-4ac5ac2143ce?w=400&h=400&fit=crop&crop=center"
                   alt="Modern Masa Lambası"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm leading-tight">Modern Masa<br />Lambası</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
-                  <span className="text-sm sm:text-base font-bold text-blue-600">₺ 189</span>
-                  <span className="text-xs sm:text-sm text-gray-500 line-through">₺ 249</span>
+              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Modern Masa<br />Lambası</h3>
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
+                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 189</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 249</span>
                 </div>
-                <div className="flex items-center mb-2 sm:mb-3">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  <span className="text-xs sm:text-sm text-gray-700">4.7 (45)</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.7 (45)</span>
                 </div>
-                <div className="space-y-1 sm:space-y-2 mt-auto">
+                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[0])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(1)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>
@@ -251,38 +252,38 @@ const Home = () => {
             </div>
 
             {/* Product Card 2 - Tasarımcı Deri Çanta */}
-            <div className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col h-full">
+            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
               <div className="aspect-square bg-white relative overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center"
                   alt="Tasarımcı Deri Çanta"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm leading-tight">Tasarımcı Deri Çanta</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
-                  <span className="text-sm sm:text-base font-bold text-blue-600">₺ 459</span>
-                  <span className="text-xs sm:text-sm text-gray-500 line-through">₺ 599</span>
+              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Tasarımcı Deri Çanta</h3>
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
+                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 459</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 599</span>
                 </div>
-                <div className="flex items-center mb-2 sm:mb-3">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  <span className="text-xs sm:text-sm text-gray-700">4.8 (127)</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.8 (127)</span>
                 </div>
-                <div className="space-y-1 sm:space-y-2 mt-auto">
+                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[1])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(2)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>
@@ -291,38 +292,38 @@ const Home = () => {
             </div>
 
             {/* Product Card 3 - Additional Product */}
-            <div className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col h-full">
+            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
               <div className="aspect-square bg-white relative overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center"
                   alt="Premium Ürün"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm leading-tight">Premium Ürün<br />Koleksiyonu</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
-                  <span className="text-sm sm:text-base font-bold text-blue-600">₺ 299</span>
-                  <span className="text-xs sm:text-sm text-gray-500 line-through">₺ 399</span>
+              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Premium Ürün<br />Koleksiyonu</h3>
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
+                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 299</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 399</span>
                 </div>
-                <div className="flex items-center mb-2 sm:mb-3">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  <span className="text-xs sm:text-sm text-gray-700">4.6 (89)</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.6 (89)</span>
                 </div>
-                <div className="space-y-1 sm:space-y-2 mt-auto">
+                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[2])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(3)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>
@@ -331,38 +332,38 @@ const Home = () => {
             </div>
 
             {/* Product Card 4 - Additional Product */}
-            <div className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col h-full">
+            <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-sm hover:shadow-lg md:hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full group">
               <div className="aspect-square bg-white relative overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&crop=center"
                   alt="Tasarım Ürünü"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-2 sm:p-3 flex flex-col flex-grow">
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm leading-tight">Tasarım Ürünü<br />Koleksiyonu</h3>
-                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
-                  <span className="text-sm sm:text-base font-bold text-blue-600">₺ 159</span>
-                  <span className="text-xs sm:text-sm text-gray-500 line-through">₺ 219</span>
+              <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 md:mb-3 text-xs sm:text-sm md:text-base leading-tight">Tasarım Ürünü<br />Koleksiyonu</h3>
+                <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 md:mb-3">
+                  <span className="text-sm sm:text-base md:text-lg font-bold text-blue-600">₺ 159</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-500 line-through">₺ 219</span>
                 </div>
-                <div className="flex items-center mb-2 sm:mb-3">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex items-center mb-2 sm:mb-3 md:mb-4">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
-                  <span className="text-xs sm:text-sm text-gray-700">4.5 (67)</span>
+                  <span className="text-xs sm:text-sm md:text-base text-gray-700">4.5 (67)</span>
                 </div>
-                <div className="space-y-1 sm:space-y-2 mt-auto">
+                <div className="space-y-1 sm:space-y-2 md:space-y-3 mt-auto">
                   <button 
                     onClick={() => handleAddToCart(featuredProducts[3])}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Sepete Ekle
                   </button>
                   <button 
                     onClick={() => handleReviewProduct(4)}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-medium py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg transition-colors"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm md:text-base font-medium py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-lg transition-all duration-200 hover:shadow-md"
                   >
                     Ürün İncele
                   </button>
