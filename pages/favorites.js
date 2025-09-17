@@ -150,11 +150,6 @@ const Favorites = () => {
     showNotificationMessage('Product removed from favorites', 'success');
   };
 
-  const addToCart = (id) => {
-    // This would typically add to a global cart state
-    showNotificationMessage('Product added to cart!', 'success');
-  };
-
   if (favoriteProducts.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50">
