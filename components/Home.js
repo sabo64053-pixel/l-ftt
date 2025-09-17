@@ -3,10 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useCart } from '../context/CartContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const Home = () => {
   const router = useRouter();
   const { addToCart } = useCart();
+  const { t } = useLanguage();
   const scrollContainerRef = useRef(null);
   const scrollContainerRef2 = useRef(null);
 
@@ -140,13 +142,13 @@ const Home = () => {
           <div className="text-left max-w-7xl mx-auto">
             <div className="max-w-2xl lg:max-w-3xl">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white leading-tight drop-shadow-lg">
-              Şık Ev Dekorasyonu
+              {t('home.hero.title')}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 text-white leading-relaxed opacity-95 drop-shadow-md max-w-xl">
-              Lüks ev dekorasyonu ve tasarımcı mobilya parçalarından oluşan özel koleksiyonumuzla mekanınızı dönüştürün.
+              {t('home.hero.description')}
             </p>
             <Link href="/shop/home-decor" className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-4 sm:py-5 px-8 sm:px-10 rounded-lg transition-all duration-300 text-lg sm:text-xl shadow-lg hover:shadow-xl inline-flex items-center gap-3 transform hover:scale-105">
-              Daha Fazlasını Keşfedin &gt;
+              {t('home.hero.exploreMore')} &gt;
             </Link>
             </div>
           </div>
@@ -157,9 +159,9 @@ const Home = () => {
       <section className="bg-white py-6 sm:py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
-            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Öne Çıkan Kategoriler</h2>
+            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">{t('home.featuredCategories')}</h2>
             <Link href="/categories" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
-              Tümünü Gör &gt;
+              {t('home.viewAll')} &gt;
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
@@ -242,9 +244,9 @@ const Home = () => {
       <section className="bg-gray-50 py-6 sm:py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
-            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Öne Çıkan Ürünler</h2>
+            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">{t('home.featuredProducts')}</h2>
             <Link href="/products" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
-              Tümünü Gör &gt;
+              {t('home.viewAll')} &gt;
             </Link>
           </div>
           {/* Mobile: 2 columns grid, Desktop: horizontal scroll */}
@@ -597,9 +599,9 @@ const Home = () => {
       <section className="bg-white py-6 sm:py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 md:mb-8 space-y-4 sm:space-y-0">
-            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">Yeni Ürünler</h2>
+            <h2 className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-800">{t('home.newProducts')}</h2>
             <Link href="/products" className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base">
-              Tümünü Gör &gt;
+              {t('home.viewAll')} &gt;
             </Link>
           </div>
           {/* Mobile: 2 columns grid, Desktop: horizontal scroll */}
@@ -845,7 +847,7 @@ const Home = () => {
               </div>
             </Link>
 
-          </div>
+            </div>
 
           {/* Left Navigation Button - Desktop Only */}
           <button
@@ -873,7 +875,7 @@ const Home = () => {
       {/* Show More Button */}
       <div className="flex justify-center mt-8">
         <button className="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 hover:shadow-lg flex items-center space-x-2">
-          <span>Show More</span>
+          <span>{t('home.showMore')}</span>
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
