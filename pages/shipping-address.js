@@ -153,7 +153,10 @@ const ShippingAddress = () => {
             {/* Address Cards */}
             <div className="space-y-4">
               {/* Home Address */}
-              <div className={`border-2 rounded-lg p-6 ${selectedAddress === 'home' ? 'border-purple-300 bg-purple-50' : 'border-gray-200 bg-white'}`}>
+              <div 
+                className={`border-2 rounded-lg p-6 cursor-pointer transition-all duration-200 hover:shadow-md ${selectedAddress === 'home' ? 'border-purple-300 bg-purple-50' : 'border-gray-200 bg-white hover:border-gray-300'}`}
+                onClick={() => setSelectedAddress('home')}
+              >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center mb-2">
@@ -166,19 +169,24 @@ const ShippingAddress = () => {
                     <p className="text-gray-700">+1 (555) 123-4567</p>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <button className="text-blue-600 hover:text-blue-700 flex items-center">
+                    <button 
+                      className="text-blue-600 hover:text-blue-700 flex items-center"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Edit functionality would go here
+                      }}
+                    >
                       <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                       </svg>
                       Edit
                     </button>
                     <div 
-                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer ${
+                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                         selectedAddress === 'home' 
                           ? 'border-blue-600 bg-blue-600' 
                           : 'border-gray-300'
                       }`}
-                      onClick={() => setSelectedAddress('home')}
                     >
                       {selectedAddress === 'home' && (
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,7 +199,10 @@ const ShippingAddress = () => {
               </div>
 
               {/* Office Address */}
-              <div className={`border-2 rounded-lg p-6 ${selectedAddress === 'office' ? 'border-purple-300 bg-purple-50' : 'border-gray-200 bg-white'}`}>
+              <div 
+                className={`border-2 rounded-lg p-6 cursor-pointer transition-all duration-200 hover:shadow-md ${selectedAddress === 'office' ? 'border-purple-300 bg-purple-50' : 'border-gray-200 bg-white hover:border-gray-300'}`}
+                onClick={() => setSelectedAddress('office')}
+              >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center mb-2">
@@ -203,19 +214,24 @@ const ShippingAddress = () => {
                     <p className="text-gray-700">+1 (555) 987-6543</p>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <button className="text-blue-600 hover:text-blue-700 flex items-center">
+                    <button 
+                      className="text-blue-600 hover:text-blue-700 flex items-center"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Edit functionality would go here
+                      }}
+                    >
                       <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                       </svg>
                       Edit
                     </button>
                     <div 
-                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer ${
+                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                         selectedAddress === 'office' 
                           ? 'border-blue-600 bg-blue-600' 
                           : 'border-gray-300'
                       }`}
-                      onClick={() => setSelectedAddress('office')}
                     >
                       {selectedAddress === 'office' && (
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
