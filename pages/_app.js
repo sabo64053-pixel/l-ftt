@@ -1,13 +1,16 @@
 import "@/styles/globals.css";
 import { CartProvider } from "../context/CartContext";
 import { LanguageProvider } from "../context/LanguageContext";
+import { AuthProvider } from "../context/AuthContext";
 
 export default function App({ Component, pageProps }) {
   return (
     <LanguageProvider>
-      <CartProvider>
-        <Component {...pageProps} />
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <Component {...pageProps} />
+        </CartProvider>
+      </AuthProvider>
     </LanguageProvider>
   );
 }

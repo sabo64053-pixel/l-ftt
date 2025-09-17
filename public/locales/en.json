@@ -14,7 +14,11 @@
     "home": "Home",
     "categories": "Categories",
     "myFavorites": "My Favorites",
-    "myCart": "My Cart"
+    "myCart": "My Cart",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "welcome": "Welcome"
   },
   "home": {
     "hero": {
@@ -148,5 +152,38 @@
     "confirm": "Confirm",
     "yes": "Yes",
     "no": "No"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Welcome back! Please sign in to your account."
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join us today! Create your account to get started."
+    },
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "namePlaceholder": "Enter your full name",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "loginButton": "Sign In",
+    "registerButton": "Create Account",
+    "loggingIn": "Signing in...",
+    "registering": "Creating account...",
+    "or": "or",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "registerLink": "Sign up",
+    "loginLink": "Sign in",
+    "agreeToTerms": "I agree to the",
+    "termsOfService": "Terms of Service",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy"
   }
 }

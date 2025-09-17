@@ -14,7 +14,11 @@
     "home": "Anasayfa",
     "categories": "Kategoriler",
     "myFavorites": "Favorilerim",
-    "myCart": "Sepetim"
+    "myCart": "Sepetim",
+    "login": "Giriş Yap",
+    "logout": "Çıkış Yap",
+    "profile": "Profil",
+    "welcome": "Hoş geldiniz"
   },
   "home": {
     "hero": {
@@ -148,5 +152,38 @@
     "confirm": "Onayla",
     "yes": "Evet",
     "no": "Hayır"
+  },
+  "auth": {
+    "login": {
+      "title": "Giriş Yap",
+      "subtitle": "Tekrar hoş geldiniz! Hesabınıza giriş yapın."
+    },
+    "register": {
+      "title": "Hesap Oluştur",
+      "subtitle": "Bugün bize katılın! Başlamak için hesabınızı oluşturun."
+    },
+    "email": "E-posta",
+    "password": "Şifre",
+    "name": "Ad Soyad",
+    "confirmPassword": "Şifreyi Onayla",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "passwordPlaceholder": "Şifrenizi girin",
+    "namePlaceholder": "Ad soyadınızı girin",
+    "confirmPasswordPlaceholder": "Şifrenizi onaylayın",
+    "rememberMe": "Beni hatırla",
+    "forgotPassword": "Şifremi unuttum?",
+    "loginButton": "Giriş Yap",
+    "registerButton": "Hesap Oluştur",
+    "loggingIn": "Giriş yapılıyor...",
+    "registering": "Hesap oluşturuluyor...",
+    "or": "veya",
+    "noAccount": "Hesabınız yok mu?",
+    "haveAccount": "Zaten hesabınız var mı?",
+    "registerLink": "Kayıt ol",
+    "loginLink": "Giriş yap",
+    "agreeToTerms": "Kabul ediyorum",
+    "termsOfService": "Kullanım Şartları",
+    "and": "ve",
+    "privacyPolicy": "Gizlilik Politikası"
   }
 }

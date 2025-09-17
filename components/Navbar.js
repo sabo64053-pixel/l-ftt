@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '../context/CartContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,6 +10,7 @@ const Navbar = () => {
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const { cartCount } = useCart();
   const { language, changeLanguage, t } = useLanguage();
+  const { user, logout, isAuthenticated } = useAuth();
 
   return (
     <div className="bg-white shadow-sm">
@@ -89,13 +91,36 @@ const Navbar = () => {
             <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-8">
               {/* Desktop User Actions */}
               <div className="hidden md:flex items-center space-x-6">
-                {/* Account */}
-                <Link href="/profile" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  <span className="text-sm font-medium">{t('navbar.account')}</span>
-                </Link>
+                {/* Account/Login */}
+                {isAuthenticated ? (
+                  <div className="flex items-center space-x-4">
+                    <span className="text-sm text-gray-700">
+                      {t('navbar.welcome')}, {user.name}
+                    </span>
+                    <Link href="/profile" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span className="text-sm font-medium">{t('navbar.profile')}</span>
+                    </Link>
+                    <button
+                      onClick={logout}
+                      className="flex items-center space-x-2 text-gray-700 hover:text-red-600 transition-colors"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                      </svg>
+                      <span className="text-sm font-medium">{t('navbar.logout')}</span>
+                    </button>
+                  </div>
+                ) : (
+                  <Link href="/login" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    <span className="text-sm font-medium">{t('navbar.login')}</span>
+                  </Link>
+                )}
 
                 {/* Favorites */}
                 <Link href="/favorites" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
@@ -233,12 +258,43 @@ const Navbar = () => {
             <div className="flex-1 overflow-y-auto p-6">
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <Link href="/profile" className="flex items-center text-gray-700 py-3 hover:text-blue-600 transition-colors">
-                    <svg className="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    <span className="text-lg font-medium">Hesabım</span>
-                  </Link>
+                  {isAuthenticated ? (
+                    <>
+                      <div className="flex items-center text-gray-700 py-3">
+                        <svg className="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <div>
+                          <span className="text-lg font-medium">{t('navbar.welcome')}, {user.name}</span>
+                        </div>
+                      </div>
+                      <Link href="/profile" className="flex items-center text-gray-700 py-3 hover:text-blue-600 transition-colors">
+                        <svg className="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <span className="text-lg font-medium">{t('navbar.profile')}</span>
+                      </Link>
+                      <button
+                        onClick={() => {
+                          logout();
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className="flex items-center text-gray-700 py-3 hover:text-red-600 transition-colors w-full text-left"
+                      >
+                        <svg className="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        <span className="text-lg font-medium">{t('navbar.logout')}</span>
+                      </button>
+                    </>
+                  ) : (
+                    <Link href="/login" className="flex items-center text-gray-700 py-3 hover:text-blue-600 transition-colors">
+                      <svg className="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                      </svg>
+                      <span className="text-lg font-medium">{t('navbar.login')}</span>
+                    </Link>
+                  )}
                   <Link href="/favorites" className="flex items-center text-gray-700 py-3 hover:text-blue-600 transition-colors">
                     <svg className="w-5 h-5 mr-3 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
