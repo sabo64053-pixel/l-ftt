@@ -108,8 +108,15 @@ export const CartProvider = ({ children }) => {
     // newItems'ın array olduğundan emin ol
     const itemsArray = Array.isArray(newItems) ? newItems : [];
     setCartItems(itemsArray);
-    setCartCount(itemsArray.reduce((total, item) => total + (item.quantity || 0), 0));
-    localStorage.setItem('cartItems', JSON.stringify(itemsArray));
+    
+    // Cart count'u güncelle
+    const newCount = itemsArray.reduce((total, item) => total + (item.quantity || 0), 0);
+    setCartCount(newCount);
+    
+    // Local storage'a kaydet
+    if (isClient) {
+      localStorage.setItem('cartItems', JSON.stringify(itemsArray));
+    }
   };
 
   const value = {

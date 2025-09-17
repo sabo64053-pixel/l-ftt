@@ -251,17 +251,19 @@ const ProductDetail = () => {
   }, [product]);
 
   const handleAddToCart = () => {
-    const cartItem = {
-      ...product,
-      color: selectedColor,
-      size: selectedSize,
-      quantity: quantity
-    };
+    // Her bir quantity için ayrı ayrı ekle
+    for (let i = 0; i < quantity; i++) {
+      const cartItem = {
+        ...product,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: 1 // Her seferinde 1 ekle
+      };
+      
+      addToCart(cartItem);
+    }
     
-    // CartContext'teki addToCart fonksiyonunu kullan
-    addToCart(cartItem);
-    
-    alert(`${product.name} sepete eklendi!`);
+    alert(`${product.name} (${quantity} adet) sepete eklendi!`);
   };
 
   const handleAddToWishlist = () => {

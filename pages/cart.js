@@ -150,11 +150,15 @@ const Cart = () => {
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return;
     
-    setCartItems(prevItems =>
-      prevItems.map(item =>
+    setCartItems(prevItems => {
+      const updatedItems = prevItems.map(item =>
         item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
+      );
+      
+      // Local storage'a kaydet
+      localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+      return updatedItems;
+    });
   };
 
   const removeItem = (id) => {
