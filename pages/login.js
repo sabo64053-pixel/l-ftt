@@ -95,16 +95,6 @@ const Login = () => {
               </p>
             </div>
 
-            {/* Demo Credentials */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <h3 className="text-sm font-semibold text-blue-800 mb-2">Demo Credentials:</h3>
-              <div className="text-xs text-blue-700 space-y-1">
-                <p><strong>Admin:</strong> admin@liftpick.com / admin123</p>
-                <p><strong>User:</strong> user@liftpick.com / user123</p>
-                <p><strong>Test:</strong> test@test.com / test123</p>
-              </div>
-            </div>
-
             {errors.general && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                 <p className="text-red-800 text-sm">{errors.general}</p>
