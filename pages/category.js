@@ -382,7 +382,7 @@ const Category = () => {
                     </div>
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">{product.name}</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">{product.name}</h3>
                     <div className="flex items-center space-x-2">
                       <span className="text-lg font-bold text-blue-600">₺{product.price}</span>
                       <span className="text-sm text-gray-500 line-through">₺{product.originalPrice}</span>

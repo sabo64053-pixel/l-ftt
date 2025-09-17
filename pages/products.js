@@ -478,7 +478,7 @@ const Products = () => {
                       </div>
                     </div>
 
-                    <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">{product.name}</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2 whitespace-nowrap overflow-hidden text-ellipsis">{product.name}</h3>
 
                     <div className="flex items-center space-x-2 mb-3">
                       <span className="text-lg font-bold text-blue-600">${product.price}</span>

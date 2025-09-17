@@ -240,7 +240,7 @@ const Favorites = () => {
                   </div>
                 </div>
 
-                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm line-clamp-2">{product.name}</h3>
+                <h3 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-sm whitespace-nowrap overflow-hidden text-ellipsis">{product.name}</h3>
 
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-2 sm:mb-3">
                   <span className="text-sm sm:text-base font-bold text-blue-600">${product.price}</span>

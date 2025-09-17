@@ -286,7 +286,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Designer Leather Handbag</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Designer Leather Handbag</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">$459</span>
                     <span className="text-sm text-gray-500 line-through">$599</span>
@@ -329,7 +329,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Luxury Face Cream</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Luxury Face Cream</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">$125</span>
                     <span className="text-sm text-gray-500 line-through">$599</span>
@@ -372,7 +372,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Modern Table Lamp</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Modern Table Lamp</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">$459</span>
                     <span className="text-sm text-gray-500 line-through">$599</span>
@@ -457,7 +457,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Designer Leather Handbag</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Designer Leather Handbag</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">$459</span>
                     <span className="text-sm text-gray-500 line-through">$599</span>
@@ -500,7 +500,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Luxury Face Cream</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Luxury Face Cream</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">$125</span>
                     <span className="text-sm text-gray-500 line-through">$599</span>
@@ -543,7 +543,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Modern Table Lamp</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Modern Table Lamp</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">$459</span>
                     <span className="text-sm text-gray-500 line-through">$599</span>
