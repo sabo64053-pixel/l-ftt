@@ -665,7 +665,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Wireless Headphones</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Wireless Headphones</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">₺299</span>
                     <span className="text-sm text-gray-500 line-through">₺399</span>
@@ -708,7 +708,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Smart Watch</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Smart Watch</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">₺599</span>
                     <span className="text-sm text-gray-500 line-through">₺799</span>
@@ -751,7 +751,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Gaming Mouse</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Gaming Mouse</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">₺199</span>
                     <span className="text-sm text-gray-500 line-through">₺299</span>
@@ -794,7 +794,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Bluetooth Speaker</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Bluetooth Speaker</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">₺149</span>
                     <span className="text-sm text-gray-500 line-through">₺199</span>
@@ -837,7 +837,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight">Wireless Earbuds</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 text-base leading-tight whitespace-nowrap overflow-hidden text-ellipsis">Wireless Earbuds</h3>
                   <div className="flex items-center space-x-2">
                     <span className="text-lg font-bold text-blue-600">₺249</span>
                     <span className="text-sm text-gray-500 line-through">₺349</span>

@@ -371,7 +371,7 @@ const ProductsPage = () => {
                   </div>
 
                   <div className="p-4">
-                    <h3 className="font-semibold text-gray-800 mb-2 text-sm">{product.name}</h3>
+                    <h3 className="font-semibold text-gray-800 mb-2 text-sm whitespace-nowrap overflow-hidden text-ellipsis">{product.name}</h3>
                     <div className="flex items-center space-x-2 mb-3">
                       <span className="text-lg font-bold text-blue-600">{product.price} dolar</span>
                       <span className="text-sm text-gray-400 line-through">{product.originalPrice} dolar</span>
