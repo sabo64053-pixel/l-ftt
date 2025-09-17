@@ -186,7 +186,7 @@ const Favorites = () => {
 
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {favoriteProducts.map((product) => (
             <div key={product.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
               {/* Product Image */}
