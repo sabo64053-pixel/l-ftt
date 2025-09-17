@@ -104,6 +104,13 @@ const Register = () => {
           {/* Register Form */}
           <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
             <div className="text-center mb-6">
+              {/* Account Icon */}
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                 {t('auth.register.title')}
               </h1>
