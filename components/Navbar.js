@@ -60,8 +60,31 @@ const Navbar = () => {
         </div>
       </div>
 
-
-      {/* Mobile Category Menu */}
+      {/* Category Navigation Bar - Desktop Only */}
+      <div className="hidden lg:block border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center space-x-8 py-4">
+            <Link href="/category" className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              All Categories
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </Link>
+            <Link href="/category?cat=clothing" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              Clothing
+            </Link>
+            <Link href="/category?cat=shoes" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              Shoes
+            </Link>
+            <Link href="/category?cat=makeup" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              Makeup
+            </Link>
+            <Link href="/category?cat=home-decor" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+              Home Decor
+            </Link>
+          </div>
+        </div>
+      </div>
       {isCategoryMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200">
           <div className="px-4 py-6 space-y-4">
