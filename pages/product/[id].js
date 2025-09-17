@@ -21,7 +21,7 @@ const ProductDetail = () => {
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: -280,
+        left: -100,
         behavior: 'smooth'
       });
     }
@@ -30,7 +30,7 @@ const ProductDetail = () => {
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: 280,
+        left: 100,
         behavior: 'smooth'
       });
     }
@@ -324,26 +324,48 @@ const ProductDetail = () => {
               />
             </div>
             
-            {/* Thumbnail Images */}
-            <div className="grid grid-cols-4 gap-2">
-              {product.images.map((image, index) => (
-                <div
-                  key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className={`aspect-square bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer border-2 transition-colors ${
-                    selectedImage === index ? 'border-blue-500' : 'border-gray-200'
-                  }`}
-                >
-                  <Image
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    width={150}
-                    height={150}
-                    className="w-full h-full object-cover"
-                  />
+            {/* Thumbnail Images - Horizontal Scroll */}
+            <div className="relative">
+              <div className="flex overflow-x-auto gap-3 pb-2 hide-scrollbar" ref={scrollContainerRef}>
+                {product.images.map((image, index) => (
+                  <div
+                    key={index}
+                    onClick={() => setSelectedImage(index)}
+                    className={`flex-shrink-0 w-20 h-20 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer border-2 transition-colors ${
+                      selectedImage === index ? 'border-blue-500' : 'border-gray-200'
+                    }`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${product.name} ${index + 1}`}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              {/* Left Navigation Button */}
+              <button
+                onClick={scrollLeft}
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-lg hover:shadow-xl p-2 transition-all duration-200 hover:scale-105"
+              >
+                <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              {/* Right Navigation Button */}
+              <button
+                onClick={scrollRight}
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full shadow-lg hover:shadow-xl p-2 transition-all duration-200 hover:scale-105"
+              >
+                <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
-              ))}
-        </div>
       </div>
 
           {/* Product Info */}
