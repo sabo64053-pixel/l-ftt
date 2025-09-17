@@ -8,7 +8,7 @@ import { useCart } from '../context/CartContext';
 
 const Cart = () => {
   const router = useRouter();
-  const { cartItems, setCartItems, removeFromCart } = useCart();
+  const { cartItems, updateCartItems, removeFromCart } = useCart();
   
   const [couponCode, setCouponCode] = useState('');
   const [couponApplied, setCouponApplied] = useState(false);
@@ -46,9 +46,9 @@ const Cart = () => {
           image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop&crop=center'
         }
       ];
-      setCartItems(demoItems);
+      updateCartItems(demoItems);
     }
-  }, [cartItems.length, setCartItems]);
+  }, [cartItems.length, updateCartItems]);
 
   // Function to render product image based on type and color
   const renderProductImage = (item) => {
@@ -138,15 +138,11 @@ const Cart = () => {
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return;
     
-    // CartContext'teki setCartItems'i kullan
-    setCartItems(prevItems => {
-      const updatedItems = prevItems.map(item =>
+    // CartContext'teki updateCartItems'i kullan (cartCount'u da günceller)
+    updateCartItems(prevItems => {
+      return prevItems.map(item =>
         item.id === id ? { ...item, quantity: newQuantity } : item
       );
-      
-      // Local storage'a kaydet
-      localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-      return updatedItems;
     });
   };
 
