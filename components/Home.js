@@ -98,12 +98,12 @@ const Home = () => {
   return (
     <main className="w-full">
       {/* Hero Section - Elegant Home Decor with Purple Filter */}
-      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] flex items-center overflow-hidden">
         {/* Background Image - Modern Living Room */}
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full relative overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=600&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=700&fit=crop&crop=center"
               alt="Elegant Home Decor"
               fill
               className="object-cover"
@@ -114,19 +114,19 @@ const Home = () => {
         </div>
         
         {/* Purple Filter Overlay - Soft Elegant Purple */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-purple-400/25 to-purple-300/20 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/40 via-purple-500/35 to-purple-400/30 z-10"></div>
         
         {/* Content - Left aligned like the image */}
         <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
           <div className="text-left max-w-7xl mx-auto">
             <div className="max-w-2xl lg:max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white leading-tight drop-shadow-lg">
               Elegant Home Decor
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white leading-relaxed opacity-95 drop-shadow-md max-w-lg">
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 text-white leading-relaxed opacity-95 drop-shadow-md max-w-xl">
               Transform your space with our exclusive collection of luxury home decor and designer furniture pieces.
             </p>
-            <Link href="/shop/home-decor" className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl inline-flex items-center gap-2 transform hover:scale-105">
+            <Link href="/shop/home-decor" className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-4 sm:py-5 px-8 sm:px-10 rounded-lg transition-all duration-300 text-lg sm:text-xl shadow-lg hover:shadow-xl inline-flex items-center gap-3 transform hover:scale-105">
               Explore More &gt;
             </Link>
             </div>
