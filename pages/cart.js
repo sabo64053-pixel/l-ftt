@@ -15,6 +15,40 @@ const Cart = () => {
   const [couponDiscount, setCouponDiscount] = useState(0);
 
   // Test verileri kaldırıldı - gerçek sepet verileri kullanılacak
+  // Eğer sepet boşsa demo verileri ekle (sadece geliştirme için)
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      const demoItems = [
+        {
+          id: 1,
+          name: 'Premium Cotton T-Shirt',
+          price: 89,
+          originalPrice: 129,
+          color: 'Beyaz',
+          size: 'S',
+          quantity: 2,
+          inStock: false, // Stokta yok
+          imageType: 'tshirt',
+          imageColor: 'white',
+          image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop&crop=center'
+        },
+        {
+          id: 2,
+          name: 'Designer Handbag',
+          price: 299,
+          originalPrice: 399,
+          color: 'Siyah',
+          size: 'One Size',
+          quantity: 1,
+          inStock: true,
+          imageType: 'handbag',
+          imageColor: 'black',
+          image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop&crop=center'
+        }
+      ];
+      setCartItems(demoItems);
+    }
+  }, [cartItems.length, setCartItems]);
 
   // Function to render product image based on type and color
   const renderProductImage = (item) => {
@@ -252,7 +286,9 @@ const Cart = () => {
                               <span className="w-12 text-center font-semibold">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                                className={`w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center transition-colors ${
+                                  !item.inStock ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-50'
+                                }`}
                                 disabled={!item.inStock}
                               >
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -264,7 +300,14 @@ const Cart = () => {
                             <div className="text-right">
                               <div className="text-lg font-bold text-gray-900">${(item.price * item.quantity).toFixed(2)}</div>
                               {!item.inStock && (
-                                <span className="text-sm text-red-600">Out of Stock</span>
+                                <div className="mt-1">
+                                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                    <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                    </svg>
+                                    Stokta Yok
+                                  </span>
+                                </div>
                               )}
                             </div>
                           </div>
@@ -274,15 +317,21 @@ const Cart = () => {
                         <div className="flex items-center space-x-4 mt-4">
                           <button
                             onClick={() => saveForLater(item.id)}
-                            className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors"
+                            className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors flex items-center"
                           >
-                            Save for Later
+                            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                            </svg>
+                            Daha Sonra Kaydet
                           </button>
                           <button
                             onClick={() => removeItem(item.id)}
-                            className="text-red-600 hover:text-red-700 text-sm font-medium transition-colors"
+                            className="text-red-600 hover:text-red-700 text-sm font-medium transition-colors flex items-center"
                           >
-                            Remove
+                            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                            Kaldır
                           </button>
                         </div>
                       </div>
