@@ -166,7 +166,7 @@ const Login = () => {
                 </label>
                 
                 <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-700">
-                  {t('auth.forgotPassword')}
+                  Password
                 </Link>
               </div>
 
