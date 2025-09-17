@@ -14,53 +14,7 @@ const Cart = () => {
   const [couponApplied, setCouponApplied] = useState(false);
   const [couponDiscount, setCouponDiscount] = useState(0);
 
-  // Eğer sepet boşsa test verileri ekle
-  useEffect(() => {
-    if (cartItems.length === 0) {
-      const testItems = [
-        {
-          id: 1,
-          name: 'Premium Leather Armchair',
-          price: 1299,
-          originalPrice: 1599,
-          color: 'Brown Leather',
-          size: 'Standard',
-          quantity: 1,
-          inStock: true,
-          imageType: 'chair',
-          imageColor: 'brown',
-          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop&crop=center'
-        },
-        {
-          id: 2,
-          name: 'Premium Leather Armchair',
-          price: 1299,
-          originalPrice: 1599,
-          color: 'Brown Leather',
-          size: 'Standard',
-          quantity: 1,
-          inStock: true,
-          imageType: 'chair',
-          imageColor: 'brown',
-          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop&crop=center'
-        },
-        {
-          id: 3,
-          name: 'Premium Leather Armchair',
-          price: 1299,
-          originalPrice: 1599,
-          color: 'Brown Leather',
-          size: 'Standard',
-          quantity: 1,
-          inStock: true,
-          imageType: 'chair',
-          imageColor: 'brown',
-          image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop&crop=center'
-        }
-      ];
-      setCartItems(testItems);
-    }
-  }, [cartItems.length, setCartItems]);
+  // Test verileri kaldırıldı - gerçek sepet verileri kullanılacak
 
   // Function to render product image based on type and color
   const renderProductImage = (item) => {
