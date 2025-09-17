@@ -19,6 +19,11 @@ const Favorites = () => {
   };
   
   const [favoriteProducts, setFavoriteProducts] = useState([
+    {
+      id: 1,
+      name: 'Premium Designer Handbag',
+      price: 459,
+      originalPrice: 699,
       category: 'home-decor',
       brand: 'West Elm',
       colors: ['Black', 'Brown'],
