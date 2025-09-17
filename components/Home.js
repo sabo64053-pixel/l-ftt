@@ -121,13 +121,13 @@ const Home = () => {
           <div className="text-left max-w-7xl mx-auto">
             <div className="max-w-2xl lg:max-w-3xl">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white leading-tight drop-shadow-lg">
-              Elegant Home Decor
+              Şık Ev Dekorasyonu
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 text-white leading-relaxed opacity-95 drop-shadow-md max-w-xl">
-              Transform your space with our exclusive collection of luxury home decor and designer furniture pieces.
+              Lüks ev dekorasyonu ve tasarımcı mobilya parçalarından oluşan özel koleksiyonumuzla mekanınızı dönüştürün.
             </p>
             <Link href="/shop/home-decor" className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-4 sm:py-5 px-8 sm:px-10 rounded-lg transition-all duration-300 text-lg sm:text-xl shadow-lg hover:shadow-xl inline-flex items-center gap-3 transform hover:scale-105">
-              Explore More &gt;
+              Daha Fazlasını Keşfedin &gt;
             </Link>
             </div>
           </div>
