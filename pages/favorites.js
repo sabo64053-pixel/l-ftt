@@ -4,14 +4,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useCart } from '../context/CartContext';
 
 const Favorites = () => {
+  const { addToCart } = useCart();
+  
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    alert(`${product.name} sepete eklendi!`);
+  };
+
+  const handleViewDetails = (productId) => {
+    window.location.href = `/product/${productId}`;
+  };
+  
   const [favoriteProducts, setFavoriteProducts] = useState([
-    {
-      id: 1,
-      name: 'Premium Designer Handbag',
-      price: 459,
-      originalPrice: 699,
       category: 'home-decor',
       brand: 'West Elm',
       colors: ['Black', 'Brown'],
@@ -258,7 +265,7 @@ const Favorites = () => {
                 {/* Action Buttons */}
                 <div className="space-y-1 sm:space-y-2">
                   <button
-                    onClick={() => addToCart(product.id)}
+                    onClick={() => handleAddToCart(product)}
                     disabled={!product.inStock}
                     className={`w-full py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                       product.inStock
@@ -269,7 +276,10 @@ const Favorites = () => {
                     {product.inStock ? 'Add to Cart' : 'Out of Stock'}
                   </button>
                   
-                  <button className="w-full py-1.5 sm:py-2 px-2 sm:px-3 border border-gray-300 text-gray-700 rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-50 transition-colors">
+                  <button 
+                    onClick={() => handleViewDetails(product.id)}
+                    className="w-full py-1.5 sm:py-2 px-2 sm:px-3 border border-gray-300 text-gray-700 rounded-lg text-xs sm:text-sm font-medium hover:bg-gray-50 transition-colors"
+                  >
                     View Details
                   </button>
                 </div>
