@@ -238,7 +238,7 @@ const ProductDetail = () => {
     }
   };
 
-  const product = products[id] || products[1];
+  const product = products[parseInt(id)] || products[1];
 
   // Client-side kontrolü
   useEffect(() => {
@@ -332,7 +332,10 @@ const ProductDetail = () => {
                 {product.images.map((image, index) => (
                   <div
                     key={index}
-                    onClick={() => setSelectedImage(index)}
+                    onClick={() => {
+                      console.log('Thumbnail clicked:', index);
+                      setSelectedImage(index);
+                    }}
                     className={`flex-shrink-0 w-20 h-20 bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer border-2 transition-colors ${
                       selectedImage === index ? 'border-blue-500' : 'border-gray-200'
                     }`}
