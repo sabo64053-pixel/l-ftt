@@ -8,6 +8,7 @@ const Home = () => {
   const router = useRouter();
   const { addToCart } = useCart();
   const scrollContainerRef = useRef(null);
+  const scrollContainerRef2 = useRef(null);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -21,6 +22,24 @@ const Home = () => {
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollLeft2 = () => {
+    if (scrollContainerRef2.current) {
+      scrollContainerRef2.current.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight2 = () => {
+    if (scrollContainerRef2.current) {
+      scrollContainerRef2.current.scrollBy({
         left: 300,
         behavior: 'smooth'
       });
@@ -585,7 +604,7 @@ const Home = () => {
           </div>
           {/* Mobile: 2 columns grid, Desktop: horizontal scroll */}
           <div className="relative md:h-[450px]">
-            <div className="grid grid-cols-2 md:flex md:overflow-x-auto md:gap-6 md:pb-4 hide-scrollbar" ref={scrollContainerRef}>
+            <div className="grid grid-cols-2 md:flex md:overflow-x-auto md:gap-6 md:pb-4 hide-scrollbar" ref={scrollContainerRef2}>
             {/* Product Card 1 - Wireless Headphones */}
             <Link href="/product/9" className="block group md:w-[300px] md:flex-shrink-0">
               <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -830,7 +849,7 @@ const Home = () => {
 
           {/* Left Navigation Button - Desktop Only */}
           <button
-            onClick={scrollLeft}
+            onClick={scrollLeft2}
             className="hidden md:block absolute left-0 top-[225px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
           >
             <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -840,7 +859,7 @@ const Home = () => {
 
           {/* Right Navigation Button - Desktop Only */}
           <button
-            onClick={scrollRight}
+            onClick={scrollRight2}
             className="hidden md:block absolute right-0 top-[225px] transform -translate-y-1/2 z-20 bg-white rounded-full shadow-lg hover:shadow-xl p-4 transition-all duration-200 hover:scale-105"
           >
             <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
