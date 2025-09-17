@@ -34,11 +34,6 @@ export const CartProvider = ({ children }) => {
 
   // Sepete ürün ekleme
   const addToCart = (product) => {
-    if (!isClient) {
-      console.log('Not client side yet');
-      return;
-    }
-    
     console.log('Adding product to cart:', product);
     
     setCartItems(prevItems => {
@@ -60,7 +55,9 @@ export const CartProvider = ({ children }) => {
       console.log('New cart items:', newItems);
       
       // Local storage'a kaydet
-      localStorage.setItem('cartItems', JSON.stringify(newItems));
+      if (isClient) {
+        localStorage.setItem('cartItems', JSON.stringify(newItems));
+      }
       return newItems;
     });
     
