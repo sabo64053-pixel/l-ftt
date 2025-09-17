@@ -184,6 +184,126 @@
     "agreeToTerms": "I agree to the",
     "termsOfService": "Terms of Service",
     "and": "and",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email address and we'll send you a link to reset your password.",
+      "sendResetLink": "Send Reset Link",
+      "sending": "Sending...",
+      "rememberPassword": "Remember your password?",
+      "backToLogin": "Back to Login",
+      "success": {
+        "title": "Check Your Email",
+        "message": "We've sent a password reset link to {email}. Please check your email and follow the instructions to reset your password.",
+        "backToLogin": "Back to Login",
+        "checkSpam": "Don't see the email? Check your spam folder."
+      }
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "subtitle": "Enter your new password below.",
+      "resetButton": "Reset Password",
+      "resetting": "Resetting...",
+      "rememberPassword": "Remember your password?",
+      "backToLogin": "Back to Login",
+      "success": {
+        "title": "Password Reset Successfully",
+        "message": "Your password has been reset successfully. You can now log in with your new password.",
+        "login": "Login Now"
+      }
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last Updated",
+      "date": "December 2024",
+      "section1": {
+        "title": "1. Acceptance of Terms",
+        "content": "By accessing and using LIFT•PICK, you accept and agree to be bound by the terms and provision of this agreement."
+      },
+      "section2": {
+        "title": "2. Use License",
+        "content": "Permission is granted to temporarily download one copy of LIFT•PICK for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
+        "item1": "modify or copy the materials",
+        "item2": "use the materials for any commercial purpose or for any public display",
+        "item3": "attempt to reverse engineer any software contained on the website",
+        "item4": "remove any copyright or other proprietary notations from the materials"
+      },
+      "section3": {
+        "title": "3. Disclaimer",
+        "content": "The materials on LIFT•PICK are provided on an 'as is' basis. LIFT•PICK makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights."
+      },
+      "section4": {
+        "title": "4. Limitations",
+        "content": "In no event shall LIFT•PICK or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on LIFT•PICK, even if LIFT•PICK or an authorized representative has been notified orally or in writing of the possibility of such damage."
+      },
+      "section5": {
+        "title": "5. Accuracy of Materials",
+        "content": "The materials appearing on LIFT•PICK could include technical, typographical, or photographic errors. LIFT•PICK does not warrant that any of the materials on its website are accurate, complete, or current."
+      },
+      "section6": {
+        "title": "6. Links",
+        "content": "LIFT•PICK has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by LIFT•PICK of the site."
+      },
+      "section7": {
+        "title": "7. Modifications",
+        "content": "LIFT•PICK may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service."
+      },
+      "section8": {
+        "title": "8. Governing Law",
+        "content": "These terms and conditions are governed by and construed in accordance with the laws of the United States and you irrevocably submit to the exclusive jurisdiction of the courts in that state or location."
+      },
+      "contact": "If you have any questions about these Terms of Service, please",
+      "contactLink": "contact us"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated",
+      "date": "December 2024",
+      "section1": {
+        "title": "1. Information We Collect",
+        "content": "We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support."
+      },
+      "section2": {
+        "title": "2. Personal Information",
+        "content": "We may collect the following types of personal information:",
+        "item1": "Name and contact information (email address, phone number)",
+        "item2": "Account credentials (username, password)",
+        "item3": "Payment information (credit card details, billing address)",
+        "item4": "Shipping and delivery information",
+        "item5": "Communication preferences"
+      },
+      "section3": {
+        "title": "3. How We Use Your Information",
+        "content": "We use the information we collect to:",
+        "item1": "Provide, maintain, and improve our services",
+        "item2": "Process transactions and send related information",
+        "item3": "Send technical notices, updates, and support messages",
+        "item4": "Respond to your comments and questions"
+      },
+      "section4": {
+        "title": "4. Information Sharing",
+        "content": "We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this privacy policy."
+      },
+      "section5": {
+        "title": "5. Data Security",
+        "content": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
+      },
+      "section6": {
+        "title": "6. Cookies and Tracking",
+        "content": "We use cookies and similar tracking technologies to enhance your experience on our website and analyze usage patterns."
+      },
+      "section7": {
+        "title": "7. Your Rights",
+        "content": "You have the right to access, update, or delete your personal information. You may also opt out of certain communications from us."
+      },
+      "section8": {
+        "title": "8. Changes to This Policy",
+        "content": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page."
+      },
+      "contact": "If you have any questions about this Privacy Policy, please",
+      "contactLink": "contact us"
+    }
   }
 }

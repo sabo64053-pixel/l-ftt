@@ -184,6 +184,126 @@
     "agreeToTerms": "Kabul ediyorum",
     "termsOfService": "Kullanım Şartları",
     "and": "ve",
-    "privacyPolicy": "Gizlilik Politikası"
+    "privacyPolicy": "Gizlilik Politikası",
+    "forgotPassword": {
+      "title": "Şifremi Unuttum",
+      "subtitle": "E-posta adresinizi girin, şifrenizi sıfırlamak için size bir bağlantı gönderelim.",
+      "sendResetLink": "Sıfırlama Bağlantısı Gönder",
+      "sending": "Gönderiliyor...",
+      "rememberPassword": "Şifrenizi hatırladınız mı?",
+      "backToLogin": "Giriş Sayfasına Dön",
+      "success": {
+        "title": "E-postanızı Kontrol Edin",
+        "message": "{email} adresine şifre sıfırlama bağlantısı gönderdik. Lütfen e-postanızı kontrol edin ve şifrenizi sıfırlamak için talimatları takip edin.",
+        "backToLogin": "Giriş Sayfasına Dön",
+        "checkSpam": "E-postayı görmüyor musunuz? Spam klasörünüzü kontrol edin."
+      }
+    },
+    "resetPassword": {
+      "title": "Şifre Sıfırla",
+      "subtitle": "Aşağıya yeni şifrenizi girin.",
+      "resetButton": "Şifreyi Sıfırla",
+      "resetting": "Sıfırlanıyor...",
+      "rememberPassword": "Şifrenizi hatırladınız mı?",
+      "backToLogin": "Giriş Sayfasına Dön",
+      "success": {
+        "title": "Şifre Başarıyla Sıfırlandı",
+        "message": "Şifreniz başarıyla sıfırlandı. Artık yeni şifrenizle giriş yapabilirsiniz.",
+        "login": "Şimdi Giriş Yap"
+      }
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Kullanım Şartları",
+      "lastUpdated": "Son Güncelleme",
+      "date": "Aralık 2024",
+      "section1": {
+        "title": "1. Şartların Kabulü",
+        "content": "LIFT•PICK'e erişerek ve kullanarak, bu anlaşmanın şart ve hükümlerine bağlı olmayı kabul eder ve kabul edersiniz."
+      },
+      "section2": {
+        "title": "2. Kullanım Lisansı",
+        "content": "LIFT•PICK'in geçici olarak kişisel, ticari olmayan geçici görüntüleme için bir kopyasını indirme izni verilir. Bu bir lisans verilmesidir, mülkiyet devri değildir ve bu lisans altında şunları yapamazsınız:",
+        "item1": "malzemeleri değiştirmek veya kopyalamak",
+        "item2": "malzemeleri herhangi bir ticari amaç için veya herhangi bir kamu gösterimi için kullanmak",
+        "item3": "web sitesinde bulunan herhangi bir yazılımı tersine mühendislik yapmaya çalışmak",
+        "item4": "malzemelerden herhangi bir telif hakkı veya diğer mülkiyet notlarını kaldırmak"
+      },
+      "section3": {
+        "title": "3. Sorumluluk Reddi",
+        "content": "LIFT•PICK'teki malzemeler 'olduğu gibi' temelinde sağlanır. LIFT•PICK, açık veya zımni hiçbir garanti vermez ve burada satılabilirlik, belirli bir amaç için uygunluk veya fikri mülkiyet ihlali veya diğer hakların ihlali dahil olmak üzere tüm diğer garantileri reddeder ve olumsuzlar."
+      },
+      "section4": {
+        "title": "4. Sınırlamalar",
+        "content": "Hiçbir durumda LIFT•PICK veya tedarikçileri, LIFT•PICK'teki malzemelerin kullanımından veya kullanılamamasından kaynaklanan herhangi bir hasar (veri kaybı veya kar kaybı veya iş kesintisi nedeniyle hasarlar dahil) için sorumlu olmayacaktır."
+      },
+      "section5": {
+        "title": "5. Malzemelerin Doğruluğu",
+        "content": "LIFT•PICK'te görünen malzemeler teknik, tipografik veya fotoğrafik hatalar içerebilir. LIFT•PICK, web sitesindeki malzemelerden herhangi birinin doğru, eksiksiz veya güncel olduğunu garanti etmez."
+      },
+      "section6": {
+        "title": "6. Bağlantılar",
+        "content": "LIFT•PICK, web sitesine bağlı tüm siteleri incelememiştir ve böyle bağlı herhangi bir sitenin içeriğinden sorumlu değildir. Herhangi bir bağlantının dahil edilmesi, LIFT•PICK'in siteyi onayladığı anlamına gelmez."
+      },
+      "section7": {
+        "title": "7. Değişiklikler",
+        "content": "LIFT•PICK, web sitesi için bu hizmet şartlarını herhangi bir bildirimde bulunmadan istediği zaman revize edebilir. Bu web sitesini kullanarak, bu hizmet şartlarının o anki versiyonuna bağlı olmayı kabul ediyorsunuz."
+      },
+      "section8": {
+        "title": "8. Geçerli Hukuk",
+        "content": "Bu şart ve koşullar Amerika Birleşik Devletleri yasalarına göre yönetilir ve yorumlanır ve siz bu eyalet veya konumdaki mahkemelerin münhasır yetkisine geri alınamaz şekilde tabi olursunuz."
+      },
+      "contact": "Bu Kullanım Şartları hakkında sorularınız varsa, lütfen",
+      "contactLink": "bizimle iletişime geçin"
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "lastUpdated": "Son Güncelleme",
+      "date": "Aralık 2024",
+      "section1": {
+        "title": "1. Topladığımız Bilgiler",
+        "content": "Hesap oluşturduğunuzda, satın alma yaptığınızda veya destek için bizimle iletişime geçtiğinizde olduğu gibi doğrudan bize sağladığınız bilgileri toplarız."
+      },
+      "section2": {
+        "title": "2. Kişisel Bilgiler",
+        "content": "Aşağıdaki türde kişisel bilgileri toplayabiliriz:",
+        "item1": "Ad ve iletişim bilgileri (e-posta adresi, telefon numarası)",
+        "item2": "Hesap kimlik bilgileri (kullanıcı adı, şifre)",
+        "item3": "Ödeme bilgileri (kredi kartı detayları, fatura adresi)",
+        "item4": "Kargo ve teslimat bilgileri",
+        "item5": "İletişim tercihleri"
+      },
+      "section3": {
+        "title": "3. Bilgilerinizi Nasıl Kullanırız",
+        "content": "Topladığımız bilgileri şunlar için kullanırız:",
+        "item1": "Hizmetlerimizi sağlamak, sürdürmek ve geliştirmek",
+        "item2": "İşlemleri işlemek ve ilgili bilgileri göndermek",
+        "item3": "Teknik bildirimler, güncellemeler ve destek mesajları göndermek",
+        "item4": "Yorumlarınıza ve sorularınıza yanıt vermek"
+      },
+      "section4": {
+        "title": "4. Bilgi Paylaşımı",
+        "content": "Bu gizlilik politikasında açıklandığı şekilde olmadıkça, kişisel bilgilerinizi üçüncü taraflara rızanız olmadan satmayız, takas etmeyiz veya başka şekilde transfer etmeyiz."
+      },
+      "section5": {
+        "title": "5. Veri Güvenliği",
+        "content": "Kişisel bilgilerinizi yetkisiz erişim, değiştirme, açıklama veya yok etmeye karşı korumak için uygun güvenlik önlemleri uygularız."
+      },
+      "section6": {
+        "title": "6. Çerezler ve İzleme",
+        "content": "Web sitemizdeki deneyiminizi geliştirmek ve kullanım kalıplarını analiz etmek için çerezler ve benzer izleme teknolojileri kullanırız."
+      },
+      "section7": {
+        "title": "7. Haklarınız",
+        "content": "Kişisel bilgilerinize erişme, güncelleme veya silme hakkınız vardır. Ayrıca bizden belirli iletişimlerden çıkabilirsiniz."
+      },
+      "section8": {
+        "title": "8. Bu Politikadaki Değişiklikler",
+        "content": "Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Yeni politikayı bu sayfada yayınlayarak herhangi bir değişiklikten sizi haberdar edeceğiz."
+      },
+      "contact": "Bu Gizlilik Politikası hakkında sorularınız varsa, lütfen",
+      "contactLink": "bizimle iletişime geçin"
+    }
   }
 }
