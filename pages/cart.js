@@ -150,6 +150,7 @@ const Cart = () => {
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return;
     
+    // CartContext'teki setCartItems'i kullan
     setCartItems(prevItems => {
       const updatedItems = prevItems.map(item =>
         item.id === id ? { ...item, quantity: newQuantity } : item
