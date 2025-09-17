@@ -86,11 +86,17 @@ export const CartProvider = ({ children }) => {
         newItems = prevItems.filter(item => item.id !== productId);
       }
       
-      localStorage.setItem('cartItems', JSON.stringify(newItems));
+      // Local storage'a kaydet
+      if (isClient) {
+        localStorage.setItem('cartItems', JSON.stringify(newItems));
+      }
+      
+      // Cart count'u güncelle (toplam miktar)
+      const newCount = newItems.reduce((total, item) => total + (item.quantity || 0), 0);
+      setCartCount(newCount);
+      
       return newItems;
     });
-    
-    setCartCount(prevCount => Math.max(0, prevCount - 1));
   };
 
   // Sepeti temizle

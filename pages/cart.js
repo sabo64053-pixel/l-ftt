@@ -14,42 +14,6 @@ const Cart = () => {
   const [couponApplied, setCouponApplied] = useState(false);
   const [couponDiscount, setCouponDiscount] = useState(0);
 
-  // Test verileri kaldırıldı - gerçek sepet verileri kullanılacak
-  // Eğer sepet boşsa demo verileri ekle (sadece geliştirme için)
-  useEffect(() => {
-    if (cartItems.length === 0) {
-      const demoItems = [
-        {
-          id: 1,
-          name: 'Premium Cotton T-Shirt',
-          price: 89,
-          originalPrice: 129,
-          color: 'Beyaz',
-          size: 'S',
-          quantity: 2,
-          inStock: false, // Stokta yok
-          imageType: 'tshirt',
-          imageColor: 'white',
-          image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop&crop=center'
-        },
-        {
-          id: 2,
-          name: 'Designer Handbag',
-          price: 299,
-          originalPrice: 399,
-          color: 'Siyah',
-          size: 'One Size',
-          quantity: 1,
-          inStock: true,
-          imageType: 'handbag',
-          imageColor: 'black',
-          image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop&crop=center'
-        }
-      ];
-      updateCartItems(demoItems);
-    }
-  }, [cartItems.length, updateCartItems]);
-
   // Function to render product image based on type and color
   const renderProductImage = (item) => {
     // Eğer item'da image varsa onu kullan
