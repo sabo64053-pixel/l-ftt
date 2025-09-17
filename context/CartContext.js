@@ -125,7 +125,8 @@ export const CartProvider = ({ children }) => {
     addToCart,
     removeFromCart,
     clearCart,
-    setCartItems: updateCartItems
+    updateCartItems,
+    setCartItems: updateCartItems // Backward compatibility
   };
 
   return (
