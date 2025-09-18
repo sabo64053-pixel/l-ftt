@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,6 +23,13 @@ const Category = () => {
     sizes: false,
     brands: false
   });
+
+  // Handle query parameters
+  useEffect(() => {
+    if (router.query.cat) {
+      setSelectedCategories([router.query.cat]);
+    }
+  }, [router.query.cat]);
 
   const handleReviewProduct = (productId) => {
     router.push(`/product/${productId}`);

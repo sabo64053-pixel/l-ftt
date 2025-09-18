@@ -166,7 +166,7 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {/* Category Card 1: Clothing */}
-            <Link href="/category/clothing" className="block group">
+            <Link href="/category?cat=clothing" className="block group">
               <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <div className="aspect-square relative overflow-hidden">
                   <Image
@@ -184,7 +184,7 @@ const Home = () => {
             </Link>
 
             {/* Category Card 2: Shoes */}
-            <Link href="/category/shoes" className="block group">
+            <Link href="/category?cat=shoes" className="block group">
               <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <div className="aspect-square relative overflow-hidden">
                   <Image
@@ -202,7 +202,7 @@ const Home = () => {
             </Link>
 
             {/* Category Card 3: Makeup */}
-            <Link href="/category/makeup" className="block group">
+            <Link href="/category?cat=makeup" className="block group">
               <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <div className="aspect-square relative overflow-hidden">
                   <Image
@@ -220,7 +220,7 @@ const Home = () => {
             </Link>
 
             {/* Category Card 4: Home Decor */}
-            <Link href="/category/home-decor" className="block group">
+            <Link href="/category?cat=home-decor" className="block group">
               <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                 <div className="aspect-square relative overflow-hidden">
                   <Image
